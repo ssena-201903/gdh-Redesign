@@ -1,0 +1,32 @@
+$primary-black: #181731;
+
+.main {
+    display: flex; 
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 3vh;
+    padding: 6px;
+    background-color: $primary-black;
+
+    .weather {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        width: 230px;
+        color: white;
+        padding: 8px;
+        margin-left: 30px;
+        border-right: 1px solid white;
+
+        p {
+            font-size: 14px;
+        }
+    }
+    .score {
+        @extend .weather;
+        width: 350px;
+    }
+}
