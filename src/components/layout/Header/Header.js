@@ -1,6 +1,7 @@
 import React from "react";
 import "./Header.scss";
 import logoPath from "../../../assets/logo.png";
+import SearchIcon from "../../icons/SearchIcon";
 
 export default function Header() {
   return (
@@ -34,7 +35,7 @@ export default function Header() {
           </a>
         </div>
         <div className="profile">
-          <i class="fa-regular fa-magnifying-glass"></i>
+          <SearchIcon size="20px" color="#181731"/>
           <p>Merhaba, Safiye Sena</p>
           <div className="profile-pp">
             <p>S</p>

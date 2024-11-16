@@ -1,3 +1,30 @@
 $primary-black: #181731;
 $primary-red: #E62A27;
 $font-family: "Montserrat", sans-serif;
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: $primary-black;
+    width: 15%;
+    height: 84vh;
+    padding: 16px 0;
+
+    .menu-item {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 8px 32px 0 32px;
+        color: white;
+        cursor: pointer;
+
+        p {
+            margin-left: 20px;
+            font-size: 16px;
+            font-weight: 300;
+        }
+    }
+}
