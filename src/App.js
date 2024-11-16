@@ -1,6 +1,6 @@
 import './App.scss';
-import Header from './components/Header/Header';
-import TopHeader from './components/TopHeader/TopHeader';
+import Header from './components/layout/Header/Header'
+import TopHeader from './components/layout/Header/TopHeader';
 
 function App() {
   return (
