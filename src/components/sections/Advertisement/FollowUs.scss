@@ -1,14 +1,16 @@
 .main {
     display: flex;
     flex-direction: column;
-    width: 300px;
+    justify-content: center;
+    align-items: center;
+    width: 220px;
     height: auto;
     margin: 16px;
-    border: 1px solid white;
-    padding: 2px;
+    background-color: #181731;
+    padding: 2px 16px;
 
     h5 {
-        font-size: 14px;
+        font-size: 12px;
         font-weight: 400;
         color: white;
     }

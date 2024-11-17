@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const AppleIcon = ({ size, color, margin, padding }) => {
   return (
     <i
-      className="fa-light fa-apple-whole"
+      className="fa-brands fa-apple"
       style={{ fontSize: size, color: color, margin: margin, padding: padding }}
       aria-hidden="true"
     />

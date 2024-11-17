@@ -1,15 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types';
+import './SocialButton.scss';
 
-const SocialButton = ({ IconComponent, text1, text2}) => {
+const SocialButton = ({ IconComponent, text1, text2, padding, margin}) => {
   return (
-    <button className='social-button'>
-        {IconComponent && <IconComponent size="24px" color="white "/>}
+    <div className='social-button'>
+        {IconComponent && <IconComponent size="16px" color="white" margin="2px"/>}
         <div className='text-container'>
             <p className='text1'>{text1}</p>
             <p className='text2'>{text2}</p>
         </div>
-    </button>
+    </div>
   )
 }
 
@@ -17,6 +18,8 @@ SocialButton.propTypes = {
     IconComponent: PropTypes.func,
     text1: PropTypes.string,
     text2: PropTypes.string,
+    margin: PropTypes.string,
+    padding: PropTypes.string,
 };
 
 export default SocialButton;
