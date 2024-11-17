@@ -1,0 +1,26 @@
+.social-button {
+    display: flex;
+    flex-direction: row;
+    padding: 8px 16px;
+    border: 1px solid white;
+    border-radius: 8px;
+    margin: 4px;
+    width: 100px;
+    height: auto;
+    background: transparent;
+
+    .text-container {
+        display: flex;
+        flex-direction: column;
+        margin-left: 8px;
+
+        .text1 {
+            font-size: 12px;
+            font-weight: 200;
+        }
+        .text2 {
+            @extend .text1;
+            font-weight: 300;
+        }
+    }
+}
