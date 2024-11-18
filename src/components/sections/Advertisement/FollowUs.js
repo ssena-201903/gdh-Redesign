@@ -39,23 +39,65 @@ const FollowUs = () => {
       <div className="social-button-container">
         <p>Ve diğer tüm mecralar için;</p>
         <div className="social-buttons">
-          <InstagramIcon size="14px" color="white" margin="0 4px" padding="0" />
-          <TwitterIcon size="14px" color="white" margin="0 4px" padding="0" />
-          <LinkedinIcon size="14px" color="white" margin="0 4px" padding="0" />
-          <SpotifyIcon size="14px" color="white" margin="0 4px" padding="0" />
-          <YouTubeIcon size="14px" color="white" margin="0 4px" padding="0" />
-          <TelegramIcon size="14px" color="white" margin="0 4px" padding="0" />
+          <InstagramIcon
+            size="14px"
+            color="white"
+            margin="0 4px"
+            padding="0"
+            link={"https://www.instagram.com/gundemedairhs"}
+          />
+          <TwitterIcon
+            size="14px"
+            color="white"
+            margin="0 4px"
+            padding="0"
+            link={"https://x.com/gundemedairhs"}
+          />
+          <LinkedinIcon
+            size="14px"
+            color="white"
+            margin="0 4px"
+            padding="0"
+            link={"https://www.linkedin.com/company/gdhtv/"}
+          />
+          <SpotifyIcon
+            size="14px"
+            color="white"
+            margin="0 4px"
+            padding="0"
+            link={
+              "https://open.spotify.com/show/33HjTgoARQFSv3RaHKBIPQ?trackId=5hmxbGHnxB9veBsMNDq6xw"
+            }
+          />
+          <YouTubeIcon
+            size="14px"
+            color="white"
+            margin="0 4px"
+            padding="0"
+            link={"https://www.youtube.com/gundemedairhersey"}
+          />
+          <TelegramIcon
+            size="14px"
+            color="white"
+            margin="0 4px"
+            padding="0"
+            link={"https://t.me/gundemedairhs"}
+          />
           <SoundCloudIcon
             size="14px"
             color="white"
             margin="0 4px"
             padding="0"
+            link={"https://soundcloud.com/gdhtv"}
           />
           <ApplePodcastsIcon
             size="14px"
             color="white"
             margin="0 4px"
             padding="0"
+            link={
+              "https://podcasts.apple.com/us/podcast/g%C3%BCndeme-dair-her-%C5%9Fey/id1555228416"
+            }
           />
         </div>
       </div>
