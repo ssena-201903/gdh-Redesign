@@ -1,17 +1,125 @@
 $primary-white: #f2f5f8;
+$primary-black: #181731;
+$secondary-black: rgb(24, 23, 49, 0.9);
+$primary-red: #e62a27;
+$font-family: "Montserrat", sans-serif;
 
 .main-news-card-img {
   display: flex;
   flex-direction: column;
-  width: 500px;
-  height: 500;
+  width: 430px;
+  height: 550px;
+  margin: 20px;
+  padding: 20px;
   background-color: $primary-white;
+  border-radius: 12px;
+  border: 1px solid rgb(0, 0, 0, 0.15);
+
+  .card-top-header {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    height: auto;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 20px;
+    .topic {
+      color: rgb(0, 0, 0, 0.6);
+    }
+    .set-time {
+      @extend .topic;
+    }
+  }
+
+  h5 {
+    font-size: 24px;
+    color: $primary-black;
+    opacity: 0.9;
+    font-weight: 700;
+    margin: 16px 20px;
+  }
 
   .card-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    height: 220px;
+    margin: 8px 20px 0 20px;
+
+    .content-text {
+      width: 50%;
+      height: 100%;
+      color: rgb(0, 0, 0, 0.85);
+      margin-top: 0;
+      overflow: hidden;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 50px;
+        background: linear-gradient(transparent, $primary-white);
+        pointer-events: none;
+      }
+    }
     .content-img {
+      width: 50%;
+      height: 100%;
+      margin-left: 30px;
+      overflow: hidden;
       img {
-        width: 190;
-        height: 216;
+        width: 100%;
+        border-radius: 8px;
+        height: auto;
+        background-size: cover;
+        background-position: center;
+      }
+    }
+  }
+  .go-to-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 90%;
+    height: auto;
+    margin: 16px 20px 40px 20px;
+
+    a {
+      text-decoration: none;
+      color: rgb(0, 0, 0, 0.9);
+      font-weight: 300;
+      font-size: 14px;
+
+      &:hover {
+        color: $primary-red;
+        font-weight: 400;
+      }
+    }
+  }
+  .card-icons {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin: 0 20px;
+    justify-content: space-between;
+    align-items: center;
+    .icon-item {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 60px;
+      height: auto;
+
+      p {
+        color: black;
+        margin-left: 8px;
+        font-size: 16px;
+        color: $secondary-black;
       }
     }
   }

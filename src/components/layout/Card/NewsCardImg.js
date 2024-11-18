@@ -2,15 +2,21 @@ import React, { useState, useEffect } from "react";
 import "./NewsCardImg.scss";
 import { getRandomImage } from "../../../unsplashService";
 
+import CommentIcon from "../../icons/CommentIcon";
+import HeartIcon from "../../icons/HeartIcon";
+import SaveIcon from "../../icons/SaveIcon";
+import EyeIcon from "../../icons/EyeIcon";
+import ShareIcon from "../../icons/ShareIcon";
+
 const NewsCardImg = () => {
-  const [imgUrl,setImgUrl] = useState("");
+  const [imgUrl, setImgUrl] = useState("");
 
   useEffect(() => {
     const fetchImage = async () => {
-        const image = await getRandomImage();
-        if (image) {
-            setImgUrl(image);
-        }
+      const image = await getRandomImage();
+      if (image) {
+        setImgUrl(image);
+      }
     };
     fetchImage();
   }, []);
@@ -26,17 +32,45 @@ const NewsCardImg = () => {
         <p className="content-text">
           Lorem ipsum dolor sit amet consectetur. Etiam cras pharetra ac mattis
           volutpat euismod lacus sit eget. Eget mi velit pellentesque vestibulum
-          vitae. Vel mauris eget integer viverra.
+          vitae. Vel mauris eget integer viverra. lacus sit eget. Eget mi velit
+          pellentesque vestibulum vitae. Vel mauris eget integer viverra eget
+          integer viverra
         </p>
         <div className="content-img">
-          {imgUrl ? ( 
+          {imgUrl ? (
             <img src={imgUrl} alt="Random Unsplash" />
           ) : (
-            <p>Loading image...</p> 
+            <p>Loading image...</p>
           )}
         </div>
       </div>
-      <div className="card-icons"></div>
+      <div className="go-to-content">
+        <a href="google.com" target="_blank">
+          Devamını oku
+        </a>
+      </div>
+      <div className="card-icons">
+        <div className="icon-item">
+          <CommentIcon size="20px" color="rgb(24, 23, 49, 0.9)"/>
+          <p>0</p>
+        </div>
+        <div className="icon-item">
+          <HeartIcon size="20px" color="rgb(24, 23, 49, 0.9)"/>
+          <p>0</p>
+        </div>
+        <div className="icon-item">
+          <SaveIcon size="20px" color="rgb(24, 23, 49, 0.9)"/>
+          <p>0</p>
+        </div>
+        <div className="icon-item">
+          <EyeIcon size="20px" color="rgb(24, 23, 49, 0.9)"/>
+          <p>0</p>
+        </div>
+        <div className="icon-item">
+          <ShareIcon size="20px" color="rgb(24, 23, 49, 0.9)"/>
+          <p>0</p>
+        </div>
+      </div>
       <div className="card-comment"></div>
     </div>
   );

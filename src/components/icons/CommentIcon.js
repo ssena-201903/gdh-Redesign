@@ -1,19 +1,22 @@
 import React from 'react'
-import Proptypes from 'prop-types';
+import PropTypes from "prop-types";
 
-const CommentIcon = ({size, color}) => { 
+const CommentIcon = ({size, color, margin, padding}) => { 
   return (
     <i
         className="fa-regular fa-comments"
-        style={{fontSize: size, color: color}}
+        style={{fontSize: size, color: color, margin: margin, padding: padding}}
         aria-hidden="true"
     />
   )
 }
 
 CommentIcon.propTypes = {
-    size: Proptypes.string,
-    color: Proptypes.string,
+  size: PropTypes.string,
+  color: PropTypes.string,
+  margin: PropTypes.string,
+  padding: PropTypes.string,
+  link: PropTypes.string,
 };
 
 export default CommentIcon;

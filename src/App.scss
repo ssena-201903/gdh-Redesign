@@ -1,5 +1,11 @@
+$primary-black: #181731;
+$primary-red: #E62A27;
+$primary-white: #f2f5f8;
+$font-family: "Montserrat", sans-serif;
+
 .App {
   text-align: center;
+  font-family: $font-family;
 }
 
 /* .App-logo {
