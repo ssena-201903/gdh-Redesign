@@ -6,7 +6,7 @@ import CommentIcon from "../../icons/CommentIcon";
 import RocketIcon from "../../icons/RocketIcon";
 import GraphIcon from "../../icons/GraphIcon";
 import AboutUsIcon from "../../icons/AboutUsIcon";
-// import FollowUs from "../../sections/Advertisement/FollowUs";
+import FollowUs from "../../sections/Advertisement/FollowUs";
 
 export default function NavbarOpen() {
   return (
@@ -38,7 +38,7 @@ export default function NavbarOpen() {
         </div>
       </div>
       <div className="bottom">
-        {/* <FollowUs/> */}
+        <FollowUs/>
       </div>
     </div>
   );
