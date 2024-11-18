@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./NewsCardImg.scss";
+import { getRandomImage } from "../../../unsplashService";
 
 const NewsCardImg = () => {
+  const [imgUrl,setImgUrl] = useState("");
+
+  useEffect(() => {
+    const fetchImage = async () => {
+        const image = await getRandomImage();
+        if (image) {
+            setImgUrl(image);
+        }
+    };
+    fetchImage();
+  }, []);
+
   return (
     <div className="main-news-card-img">
       <div className="card-top-header">
@@ -16,7 +29,11 @@ const NewsCardImg = () => {
           vitae. Vel mauris eget integer viverra.
         </p>
         <div className="content-img">
-            
+          {imgUrl ? ( 
+            <img src={imgUrl} alt="Random Unsplash" />
+          ) : (
+            <p>Loading image...</p> 
+          )}
         </div>
       </div>
       <div className="card-icons"></div>

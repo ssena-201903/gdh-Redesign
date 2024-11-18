@@ -1,0 +1,18 @@
+$primary-white: #f2f5f8;
+
+.main-news-card-img {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 500;
+  background-color: $primary-white;
+
+  .card-content {
+    .content-img {
+      img {
+        width: 190;
+        height: 216;
+      }
+    }
+  }
+}
