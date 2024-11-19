@@ -27,6 +27,11 @@ $font-family: "Montserrat", sans-serif;
     .navbar-home-page {
         width: 14%;
         height: fit-content;
+        position: sticky;
+        position: -webkit-sticky;
+        overflow-y: auto;
+        overflow-x: hidden;
+        top: 0;
     }
     .news-cards-home-page {
         display: flex;
