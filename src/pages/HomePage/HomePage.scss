@@ -6,13 +6,17 @@ $font-family: "Montserrat", sans-serif;
   display: flex;
   flex-direction: column;
   width: 100vw;
-  height: 100vh;
+  height: auto;
 
   .top {
     display: flex;
     flex-direction: column;
     width: fit-content;
     height: 20%;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: white;
   }
   .bottom {
     display: flex;
