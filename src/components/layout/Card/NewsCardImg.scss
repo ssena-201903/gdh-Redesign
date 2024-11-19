@@ -8,9 +8,9 @@ $font-family: "Montserrat", sans-serif;
   display: flex;
   flex-direction: column;
   width: 430px;
-  height: 585px;
+  height: 610px;
   margin: 20px;
-  padding: 20px;
+  padding: 10px 20px;
   background-color: $primary-white;
   border-radius: 12px;
   border: 1px solid rgb(0, 0, 0, 0.1);
@@ -33,7 +33,7 @@ $font-family: "Montserrat", sans-serif;
   }
 
   h5 {
-    font-size: 24px;
+    font-size: 28px;
     color: $primary-black;
     opacity: 0.9;
     font-weight: 700;
@@ -87,7 +87,7 @@ $font-family: "Montserrat", sans-serif;
     justify-content: flex-start;
     width: 90%;
     height: auto;
-    margin: 16px 20px 40px 20px;
+    margin: 16px 20px 20px 20px;
 
     a {
       text-decoration: none;

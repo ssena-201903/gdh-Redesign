@@ -12,10 +12,18 @@ const SocialButton = ({
   width,
   height,
 }) => {
+
+  const handleLink = () => {
+    if (link) {
+      window.open(link, "_blank");
+    }
+  };
+  
   return (
     <div
       className="social-button"
-      style={{ margin: margin, padding: padding, width: width, height: height }}
+      style={{ margin: margin, padding: padding, width: width, height: height, cursor:"pointer" }}
+      onClick={handleLink}
     >
       {IconComponent && (
         <IconComponent size="16px" color="white" margin="2px" />

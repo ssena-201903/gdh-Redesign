@@ -76,9 +76,9 @@ const NewsCardImg = () => {
         <CommentCard
           IconComponent={SendIcon}
           textSize="16px"
-          margin="20px 0"
+          margin="20px 10px"
           padding="4px 16px"
-          width="90%"
+          width="380px"
           height="30px"
           iconSize="16px"
           iconColor="rgb(24, 23, 49, 0.6)"
