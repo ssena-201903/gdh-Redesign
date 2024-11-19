@@ -1,0 +1,22 @@
+@keyframes lightBall {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+  
+  .colored-line {
+    background: linear-gradient(
+      to left,
+      #181731,
+      #181731,
+      #fff,
+      #e62a27, 
+      #e62a27
+    );
+    background-size: 200% 100%;
+    animation: lightBall 20s infinite linear; 
+  }
+  

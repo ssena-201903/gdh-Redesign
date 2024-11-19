@@ -1,5 +1,5 @@
 $primary-black: #181731;
-$primary-red: #E62A27;
+$primary-red: #e62a27;
 $font-family: "Montserrat", sans-serif;
 
 .main-home-page {
@@ -25,35 +25,42 @@ $font-family: "Montserrat", sans-serif;
     height: 100%;
 
     .navbar-home-page {
-        width: 14%;
-        height: fit-content;
-        position: sticky;
-        position: -webkit-sticky;
-        overflow-y: auto;
-        overflow-x: hidden;
-        top: 0;
+      width: 14%;
+      height: fit-content;
+      position: sticky;
+      position: -webkit-sticky;
+      overflow-y: auto;
+      overflow-x: hidden;
+      top: 0;
     }
     .news-cards-home-page {
+      display: flex;
+      flex-direction: column;
+      width: 70%;
+      height: fit-content;
+      padding: 0;
+      margin: 10px 10px;
+      background-color: white;
+      .header-cards-wrap {
         display: flex;
-        flex-direction: column;
-        width: 70%;
-        height: fit-content;
-        padding: 0;
-        margin: 10px 10px;
-        background-color: white;
-        .header-cards-wrap {
-            margin: 20px 20px 20px 30px;
-            font-size: 24px;
-            color: $primary-black;
-            font-weight: 600;
+        flex-direction: row;
+        align-items: center;
+        // justify-content: ;
+        h5 {
+          margin: 20px 20px 20px 30px;
+          font-size: 24px;
+          color: $primary-black;
+          opacity: 0.9;
+          font-weight: 600;
         }
-        .cards-wrap-home-page {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1px;
-            justify-content: flex-start;
-            margin: 0 10px;
-        }
+      }
+      .cards-wrap-home-page {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1px;
+        justify-content: flex-start;
+        margin: 0 10px;
+      }
     }
   }
 }
