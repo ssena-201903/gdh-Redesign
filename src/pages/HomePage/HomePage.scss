@@ -21,21 +21,27 @@ $font-family: "Montserrat", sans-serif;
     height: 100%;
 
     .navbar-home-page {
-        width: 17%;
+        width: 14%;
         height: fit-content;
     }
     .news-cards-home-page {
         display: flex;
         flex-direction: column;
-        width: 83%;
+        width: 70%;
         height: fit-content;
         padding: 0;
-        margin: 10px 30px;
+        margin: 10px 10px;
         background-color: white;
         .header-cards-wrap {
             margin: 20px 20px 20px 30px;
             font-size: 28px;
             color: $primary-black;
+        }
+        .cards-wrap-home-page {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1px;
+            justify-content: space-between;
         }
     }
   }

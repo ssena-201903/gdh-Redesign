@@ -22,6 +22,9 @@ const HomePage = () => {
           <h5 className="header-cards-wrap">Size Özel</h5>
           <div className="cards-wrap-home-page">
             <NewsCardImg />
+            <NewsCardImg />
+            <NewsCardImg />
+            <NewsCardImg />
           </div>
         </div>
       </div>
