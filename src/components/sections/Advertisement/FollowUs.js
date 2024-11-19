@@ -1,5 +1,6 @@
 import React from "react";
 import "./FollowUs.scss";
+import PropTypes from "prop-types";
 
 import SocialButton from "../../common/SocialButton";
 import InstagramIcon from "../../icons/InstagramIcon";
@@ -14,26 +15,43 @@ import SoundCloudIcon from "../../icons/SoundCloudIcon";
 import AppleIcon from "../../icons/AppleIcon";
 import PlayStoreIcon from "../../icons/PlayStoreIcon";
 
-const FollowUs = () => {
+const FollowUs = ({ padding, margin, width, height, backgroundColor, borderRadius, border }) => {
   return (
-    <div className="main">
+    <div
+      className="main-follow-us"
+      style={{
+        padding: padding,
+        margin: margin,
+        width: width,
+        height: height,
+        backgroundColor: backgroundColor,
+        borderRadius: borderRadius,
+        border: border,
+      }}
+    >
       <h5>
         Gündeme Dair Her Şey uygulamamızı indirerek yakından takip edebilirsiniz
       </h5>
       <div className="buttons">
         <SocialButton
-          margin="0 4px"
+          margin="4px"
           padding="0"
           IconComponent={PlayStoreIcon}
           text1="GET IT ON"
           text2="Google Play"
+          width="180px"
+          height="auto"
+          link="https://play.google.com/store/apps/details?id=digital.gdh.app"
         />
         <SocialButton
-          margin="0 4px"
+          margin="4px"
           padding="0"
           IconComponent={AppleIcon}
           text1="Download on the"
           text2="App Store"
+          width="180px"
+          height="auto"
+          link="https://apps.apple.com/tr/app/gdh-haber-ve-i%C3%A7erik/id1611524529"
         />
       </div>
       <div className="social-button-container">
@@ -103,6 +121,16 @@ const FollowUs = () => {
       </div>
     </div>
   );
+};
+
+FollowUs.propTypes = {
+  margin: PropTypes.string,
+  padding: PropTypes.string,
+  width: PropTypes.string,
+  height: PropTypes.string,
+  backgroundColor: PropTypes.string,
+  borderRadius: PropTypes.string,
+  border: PropTypes.string,
 };
 
 export default FollowUs;

@@ -1,27 +1,23 @@
-.main {
+.main-follow-us {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 180px;
-    height: auto;
-    margin: 16px;
     background-color: #181731;
-    padding: 2px 16px;
 
     h5 {
-        font-size: 12px;
+        font-size: 10px;
         font-weight: 400;
         color: white;
     }
     .buttons {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
     }
     .social-button-container {
         margin: 8px 0;
         p {
-            font-size: 12px;
+            font-size: 10px;
             color: white;
             font-weight: 400;
         }

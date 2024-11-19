@@ -2,29 +2,37 @@ $primary-black: #181731;
 $primary-red: #E62A27;
 $font-family: "Montserrat", sans-serif;
 
-.navbar {
+.navbar-open {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     background-color: $primary-black;
     width: 100%;
-    height: 100vh;
-    padding: 16px 0;
+    height: fit-content;
 
-    .menu-item {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: center;
-        margin: 8px 32px 0 32px;
-        color: white;
-        cursor: pointer;
-
-        p {
-            margin-left: 20px;
-            font-size: 16px;
-            font-weight: 300;
+    .navbar-open-top {
+        width: 100%;
+        height: fit-content;
+        margin: 20px 20px 10px 20px;
+        .navbar-open-menu-item {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: 4px;
+            color: white;
+            cursor: pointer;
+    
+            p {
+                margin-left: 20px;
+                font-size: 16px;
+                font-weight: 300;
+                color: white;
+            }
         }
+    }
+    .navbar-open-bottom {
+        @extend .navbar-open-top;
     }
 }
