@@ -7,6 +7,8 @@ import HeartIcon from "../../icons/HeartIcon";
 import SaveIcon from "../../icons/SaveIcon";
 import EyeIcon from "../../icons/EyeIcon";
 import ShareIcon from "../../icons/ShareIcon";
+import SendIcon from "../../icons/SendIcon";
+import CommentCard from "./CommentCard";
 
 const NewsCardImg = () => {
   const [imgUrl, setImgUrl] = useState("");
@@ -51,27 +53,37 @@ const NewsCardImg = () => {
       </div>
       <div className="card-icons">
         <div className="icon-item">
-          <CommentIcon size="20px" color="rgb(24, 23, 49, 0.9)"/>
+          <CommentIcon size="20px" color="rgb(24, 23, 49, 0.6)" />
           <p>0</p>
         </div>
         <div className="icon-item">
-          <HeartIcon size="20px" color="rgb(24, 23, 49, 0.9)"/>
+          <HeartIcon size="20px" color="rgb(24, 23, 49, 0.6)" />
           <p>0</p>
         </div>
         <div className="icon-item">
-          <SaveIcon size="20px" color="rgb(24, 23, 49, 0.9)"/>
+          <SaveIcon size="20px" color="rgb(24, 23, 49, 0.6)" />
           <p>0</p>
         </div>
         <div className="icon-item">
-          <EyeIcon size="20px" color="rgb(24, 23, 49, 0.9)"/>
+          <EyeIcon size="20px" color="rgb(24, 23, 49, 0.6)" />
           <p>0</p>
         </div>
         <div className="icon-item">
-          <ShareIcon size="20px" color="rgb(24, 23, 49, 0.9)"/>
-          <p>0</p>
+          <ShareIcon size="20px" color="rgb(24, 23, 49, 0.6)" />
         </div>
       </div>
-      <div className="card-comment"></div>
+      <div className="card-comment">
+        <CommentCard
+          IconComponent={SendIcon}
+          textSize="16px"
+          margin="20px 0"
+          padding="4px 16px"
+          width="90%"
+          height="30px"
+          iconSize="16px"
+          iconColor="rgb(24, 23, 49, 0.6)"
+        />
+      </div>
     </div>
   );
 };

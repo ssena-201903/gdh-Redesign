@@ -1,11 +1,11 @@
 import React from 'react'
 import Proptypes from 'prop-types';
 
-const AboutUsIcon = ({size, color}) => { 
+const AboutUsIcon = ({size, color, margin}) => { 
   return (
     <i
-        className="fa-regular fa-newspaper"
-        style={{fontSize: size, color: color}}
+        className="bi bi-file-earmark-text"
+        style={{fontSize: size, color: color, margin: margin}}
         aria-hidden="true"
     />
   )
@@ -14,6 +14,7 @@ const AboutUsIcon = ({size, color}) => {
 AboutUsIcon.propTypes = {
     size: Proptypes.string,
     color: Proptypes.string,
+    margin: Proptypes.string,
 };
 
 export default AboutUsIcon;

@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const GraphIcon = ({size, color}) => {
+const GraphIcon = ({size, color, margin}) => {
   return (
     <i
-      className="fa-solid fa-chart-column"
-      style={{ fontSize: size, color: color }}
+      className="bi bi-bar-chart-line"
+      style={{ fontSize: size, color: color, margin: margin }}
       aria-hidden="true"
     />
   );
@@ -14,6 +14,7 @@ const GraphIcon = ({size, color}) => {
 GraphIcon.propTypes = {
     size: PropTypes.string,
     color: PropTypes.string,
+    margin: PropTypes.string,
 }
 
 export default GraphIcon;
