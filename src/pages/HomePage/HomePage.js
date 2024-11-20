@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./HomePage.scss";
 //components
 import Header from "../../components/layout/Header/TopHeader";
@@ -6,9 +6,33 @@ import TopHeader from "../../components/layout/Header/Header";
 import NavbarOpen from "../../components/layout/Navbar/NavbarOpen";
 // import FollowUs from "../../components/sections/Advertisement/FollowUs";
 import NewsCardImg from "../../components/layout/Card/NewsCardImg";
-import ColoredLine from "../../components/layout/Header/ColoredLine";
+import UpArrowButton from "../../components/common/UpArrowButton";
+import UpArrowIcon from "../../components/icons/UpArrowIcon";
+// import ColoredLine from "../../components/layout/Header/ColoredLine";
 
 const HomePage = () => {
+  const [isButtonVisible, setIsButtonVisible] = useState(false);
+
+  const handleScroll = () => {
+    if (window.scrollY > 200) {
+      setIsButtonVisible(true);
+    } else {
+      setIsButtonVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const scrollToUp = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div className="main-home-page">
       <div className="top">
@@ -22,16 +46,29 @@ const HomePage = () => {
         <div className="news-cards-home-page">
           <div className="header-cards-wrap">
             <h5>Size Özel</h5>
-            <ColoredLine width="850px" height="5px" />
+            {/* <ColoredLine width="850px" height="5px" /> */}
           </div>
           <div className="cards-wrap-home-page">
             <NewsCardImg />
             <NewsCardImg />
             <NewsCardImg />
             <NewsCardImg />
+            <NewsCardImg />
+            <NewsCardImg />
           </div>
         </div>
+        <div className="sections-home-page"></div>
       </div>
+      {isButtonVisible && (
+        <UpArrowButton
+          IconComponent={() => (
+            <UpArrowIcon size="24px" color="#181731" margin="0" />
+          )}
+          top="600px"
+          left="722px"
+          onClick={scrollToUp}
+        />
+      )}
     </div>
   );
 };
