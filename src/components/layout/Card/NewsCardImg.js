@@ -7,8 +7,8 @@ import HeartIcon from "../../icons/HeartIcon";
 import SaveIcon from "../../icons/SaveIcon";
 import EyeIcon from "../../icons/EyeIcon";
 import ShareIcon from "../../icons/ShareIcon";
-import SendIcon from "../../icons/SendIcon";
-import CommentCard from "./CommentCard";
+// import SendIcon from "../../icons/SendIcon";
+// import CommentCard from "./CommentCard";
 
 const NewsCardImg = () => {
   const [imgUrl, setImgUrl] = useState("");
@@ -31,13 +31,11 @@ const NewsCardImg = () => {
       </div>
       <h5>Lorem ipsum dolor sit amet consectetur. Ipsum eu tortor et.</h5>
       <div className="card-content">
-        <p className="content-text">
+        {/* <p className="content-text">
           Lorem ipsum dolor sit amet consectetur. Etiam cras pharetra ac mattis
           volutpat euismod lacus sit eget. Eget mi velit pellentesque vestibulum
-          vitae. Vel mauris eget integer viverra. lacus sit eget. Eget mi velit
-          pellentesque vestibulum vitae. Vel mauris eget integer viverra eget
-          integer viverra
-        </p>
+          vitae.
+        </p> */}
         <div className="content-img">
           {imgUrl ? (
             <img src={imgUrl} alt="Random Unsplash" />
@@ -48,31 +46,31 @@ const NewsCardImg = () => {
       </div>
       <div className="go-to-content">
         <a href="google.com" target="_blank">
-          Devamını oku
+          Haber sayfasına git
         </a>
       </div>
       <div className="card-icons">
         <div className="icon-item">
-          <CommentIcon size="20px" color="rgb(24, 23, 49, 0.6)" />
+          <CommentIcon size="16px" color="rgb(24, 23, 49, 0.6)" />
           <p>0</p>
         </div>
         <div className="icon-item">
-          <HeartIcon size="20px" color="rgb(24, 23, 49, 0.6)" />
+          <HeartIcon size="16px" color="rgb(24, 23, 49, 0.6)" />
           <p>0</p>
         </div>
         <div className="icon-item">
-          <SaveIcon size="20px" color="rgb(24, 23, 49, 0.6)" />
+          <SaveIcon size="16px" color="rgb(24, 23, 49, 0.6)" />
           <p>0</p>
         </div>
         <div className="icon-item">
-          <EyeIcon size="20px" color="rgb(24, 23, 49, 0.6)" />
+          <EyeIcon size="16px" color="rgb(24, 23, 49, 0.6)" />
           <p>0</p>
         </div>
         <div className="icon-item">
-          <ShareIcon size="20px" color="rgb(24, 23, 49, 0.6)" />
+          <ShareIcon size="16px" color="rgb(24, 23, 49, 0.6)" />
         </div>
       </div>
-      <div className="card-comment">
+      {/* <div className="card-comment">
         <CommentCard
           IconComponent={SendIcon}
           textSize="16px"
@@ -83,7 +81,7 @@ const NewsCardImg = () => {
           iconSize="16px"
           iconColor="rgb(24, 23, 49, 0.6)"
         />
-      </div>
+      </div> */}
     </div>
   );
 };

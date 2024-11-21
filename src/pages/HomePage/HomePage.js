@@ -8,7 +8,8 @@ import NavbarOpen from "../../components/layout/Navbar/NavbarOpen";
 import NewsCardImg from "../../components/layout/Card/NewsCardImg";
 import UpArrowButton from "../../components/common/UpArrowButton";
 import UpArrowIcon from "../../components/icons/UpArrowIcon";
-// import ColoredLine from "../../components/layout/Header/ColoredLine";
+import ColoredLine from "../../components/layout/Header/ColoredLine";
+import Advertisement from "../../components/sections/Advertisement/Advertisement";
 
 const HomePage = () => {
   const [isButtonVisible, setIsButtonVisible] = useState(false);
@@ -46,7 +47,7 @@ const HomePage = () => {
         <div className="news-cards-home-page">
           <div className="header-cards-wrap">
             <h5>Size Özel</h5>
-            {/* <ColoredLine width="850px" height="5px" /> */}
+            <ColoredLine width="1090px" height="5px" />
           </div>
           <div className="cards-wrap-home-page">
             <NewsCardImg />
@@ -54,6 +55,10 @@ const HomePage = () => {
             <NewsCardImg />
             <NewsCardImg />
             <NewsCardImg />
+            <NewsCardImg />
+            <NewsCardImg />
+            <NewsCardImg />
+            <Advertisement width="700px" height="400px" margin="30px"/>
             <NewsCardImg />
           </div>
         </div>
@@ -65,7 +70,7 @@ const HomePage = () => {
             <UpArrowIcon size="24px" color="#181731" margin="0" />
           )}
           top="600px"
-          left="722px"
+          left="840px"
           onClick={scrollToUp}
         />
       )}
