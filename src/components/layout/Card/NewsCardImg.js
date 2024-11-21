@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./NewsCardImg.scss";
 import { getRandomImage } from "../../../unsplashService";
 
+import { getDocs, collection} from "firebase/firestore"
+import { db } from "../../../firebaseConfig"
+
 import CommentIcon from "../../icons/CommentIcon";
 import HeartIcon from "../../icons/HeartIcon";
 import SaveIcon from "../../icons/SaveIcon";
@@ -12,6 +15,13 @@ import ShareIcon from "../../icons/ShareIcon";
 
 const NewsCardImg = () => {
   const [imgUrl, setImgUrl] = useState("");
+  const [likedCount, setLikedCount] = useState(0);
+  const [commentCount, setCommentCount] = useState(0);
+  const [seenCount, setSeenCount] = useState(0);
+  const [savedCount, setSavedCount] = useState(0);
+  const [topicName, setTopicName] = useState("");
+  const [time, setTime] = useState("");
+  const [header, setHeader] = useState("");
 
   useEffect(() => {
     const fetchImage = async () => {
@@ -26,10 +36,10 @@ const NewsCardImg = () => {
   return (
     <div className="main-news-card-img">
       <div className="card-top-header">
-        <p className="topic">Spor</p>
-        <p className="set-time">20 dk</p>
+        <p className="topic">{topicName}</p>
+        <p className="set-time">{time}</p>
       </div>
-      <h5>Lorem ipsum dolor sit amet consectetur. Ipsum eu tortor et.</h5>
+      <h5>{header}</h5>
       <div className="card-content">
         {/* <p className="content-text">
           Lorem ipsum dolor sit amet consectetur. Etiam cras pharetra ac mattis
@@ -38,7 +48,7 @@ const NewsCardImg = () => {
         </p> */}
         <div className="content-img">
           {imgUrl ? (
-            <img src={imgUrl} alt="Random Unsplash" />
+            <img src={imgUrl} alt="Random_Picsum" />
           ) : (
             <p>Loading image...</p>
           )}
@@ -52,19 +62,19 @@ const NewsCardImg = () => {
       <div className="card-icons">
         <div className="icon-item">
           <CommentIcon size="16px" color="rgb(24, 23, 49, 0.6)" />
-          <p>0</p>
+          <p>{commentCount}</p>
         </div>
         <div className="icon-item">
           <HeartIcon size="16px" color="rgb(24, 23, 49, 0.6)" />
-          <p>0</p>
+          <p>{likedCount}</p>
         </div>
         <div className="icon-item">
           <SaveIcon size="16px" color="rgb(24, 23, 49, 0.6)" />
-          <p>0</p>
+          <p>{savedCount}</p>
         </div>
         <div className="icon-item">
           <EyeIcon size="16px" color="rgb(24, 23, 49, 0.6)" />
-          <p>0</p>
+          <p>{seenCount}</p>
         </div>
         <div className="icon-item">
           <ShareIcon size="16px" color="rgb(24, 23, 49, 0.6)" />
