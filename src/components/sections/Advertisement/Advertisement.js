@@ -24,9 +24,9 @@ const Advertisement = ({ width, height, margin }) => {
       style={{ width: width, height: height, margin: margin }}
     >
       {imgUrl ? (
-        <img src={imgUrl} alt="Random_Unsplash" style={{backgroundRepeat: "", backgroundSize: "cover"} }></img>
+        <img src={imgUrl} alt="Random_Unsplash"></img>
       ) : (
-        <p>Loading Image</p>
+        <p>Loading Image...</p>
       )}
     </div>
   );

@@ -5,11 +5,12 @@ import Header from "../../components/layout/Header/TopHeader";
 import TopHeader from "../../components/layout/Header/Header";
 import NavbarOpen from "../../components/layout/Navbar/NavbarOpen";
 // import FollowUs from "../../components/sections/Advertisement/FollowUs";
-import NewsCardImg from "../../components/layout/Card/NewsCardImg";
+// import NewsCardImg from "../../components/layout/Card/NewsCardImg";
 import UpArrowButton from "../../components/common/UpArrowButton";
 import UpArrowIcon from "../../components/icons/UpArrowIcon";
 import ColoredLine from "../../components/layout/Header/ColoredLine";
-import Advertisement from "../../components/sections/Advertisement/Advertisement";
+// import Advertisement from "../../components/sections/Advertisement/Advertisement";
+import CardsGrid from "../../components/layout/Card/CardsGrid";
 
 const HomePage = () => {
   const [isButtonVisible, setIsButtonVisible] = useState(false);
@@ -49,7 +50,8 @@ const HomePage = () => {
             <h5>Size Özel</h5>
             <ColoredLine width="1090px" height="5px" />
           </div>
-          <div className="cards-wrap-home-page">
+          <CardsGrid/>
+          {/* <div className="cards-wrap-home-page">
             <NewsCardImg />
             <NewsCardImg />
             <NewsCardImg />
@@ -60,7 +62,7 @@ const HomePage = () => {
             <NewsCardImg />
             <Advertisement width="700px" height="400px" margin="30px"/>
             <NewsCardImg />
-          </div>
+          </div> */}
         </div>
         <div className="sections-home-page"></div>
       </div>
