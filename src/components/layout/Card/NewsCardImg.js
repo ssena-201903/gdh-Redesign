@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./NewsCardImg.scss";
-import { getRandomImage } from "../../../unsplashService";
+// import { getRandomImage } from "../../../unsplashService";
 
 import { getDocs, collection} from "firebase/firestore"
 import { db } from "../../../firebaseConfig"
@@ -23,14 +23,64 @@ const NewsCardImg = () => {
   const [time, setTime] = useState("");
   const [header, setHeader] = useState("");
 
+  //convert time to an object and show on the post
+  const handleTime = (time) => {
+    const currentTime = new Date();
+    const timeObject = time.toDate();
+    const uploadTime = currentTime - timeObject;
+
+    const seconds = Math.floor(uploadTime / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+    const days = Math.floor(hours / 24);
+
+    let timeString = "";
+    if (days > 0) {
+      timeString = `${days} gün`;
+    } else if (hours > 0) {
+      timeString = `${hours} saat`;
+    } else if (minutes > 0) {
+      timeString = `${minutes} dakika`;
+    } else if (seconds > 0) {
+      timeString = `${seconds} saniye`;
+    }
+
+    setTime(timeString);
+    // console.log("geçen süre: ", timeString);
+  };
+
   useEffect(() => {
-    const fetchImage = async () => {
-      const image = await getRandomImage();
-      if (image) {
-        setImgUrl(image);
+    // const fetchImage = async () => {
+    //   const image = await getRandomImage();
+    //   if (image) {
+    //     setImgUrl(image);
+    //   }
+    // };
+    // fetchImage();
+
+    const fetchPostData = async () => {
+      try {
+        const postRef = collection(db, "news");
+        const snapShot = await getDocs(postRef);
+        snapShot.forEach((doc) => {
+          // console.log(doc);
+          const postData = doc.data();
+          // console.log(postData);
+          setCommentCount(postData.commentNumber);
+          setHeader(postData.header);
+          setLikedCount(postData.likedNumber);
+          setSavedCount(postData.savedNumber);
+          setImgUrl(postData.img);
+          setSeenCount(postData.seenNumber);
+          setTopicName(postData.topic);
+          handleTime(postData.time);
+        });
+      } catch (error) {
+        console.log("error fetching post data:", error);
       }
-    };
-    fetchImage();
+    }
+    fetchPostData();
+
   }, []);
 
   return (
