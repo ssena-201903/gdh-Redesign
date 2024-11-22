@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./NewsCardImg.scss";
 // import { getRandomImage } from "../../../unsplashService";
 
-import { getDocs, collection} from "firebase/firestore"
-import { db } from "../../../firebaseConfig"
+import { getDocs, collection, doc, getDoc } from "firebase/firestore";
+import { db } from "../../../firebaseConfig";
 
 import CommentIcon from "../../icons/CommentIcon";
 import HeartIcon from "../../icons/HeartIcon";
@@ -61,26 +61,41 @@ const NewsCardImg = () => {
     const fetchPostData = async () => {
       try {
         const postRef = collection(db, "news");
-        const snapShot = await getDocs(postRef);
-        snapShot.forEach((doc) => {
-          // console.log(doc);
-          const postData = doc.data();
-          // console.log(postData);
-          setCommentCount(postData.commentNumber);
-          setHeader(postData.header);
-          setLikedCount(postData.likedNumber);
-          setSavedCount(postData.savedNumber);
-          setImgUrl(postData.img);
-          setSeenCount(postData.seenNumber);
-          setTopicName(postData.topic);
-          handleTime(postData.time);
-        });
+        const snapshot = await getDocs(postRef);
+    
+        if (!snapshot.empty) {
+          // Belge kimliklerini topla
+          const docIds = snapshot.docs.map((doc) => doc.id);
+    
+          // Rastgele bir ID seç
+          const randomIndex = Math.floor(Math.random() * docIds.length);
+          const randomId = docIds[randomIndex];
+    
+          // Seçilen belgeyi getir
+          const randomDocRef = doc(db, "news", randomId);
+          const randomDoc = await getDoc(randomDocRef);
+    
+          if (randomDoc.exists()) {
+            const postData = randomDoc.data();
+            setTopicName(postData.topic);
+            handleTime(postData.time);
+            setHeader(postData.header);
+            setCommentCount(postData.commentNumber);
+            setSeenCount(postData.seenNumber);
+            setLikedCount(postData.likedNumber);
+            setImgUrl(postData.img);
+            setSavedCount(postData.savedNumber);
+          } else {
+            console.log("No document found for the selected ID.");
+          }
+        } else {
+          console.log("No documents found in the collection.");
+        }
       } catch (error) {
-        console.log("error fetching post data:", error);
+        console.error("Error fetching random post data: ", error);
       }
-    }
+    };
     fetchPostData();
-
   }, []);
 
   return (

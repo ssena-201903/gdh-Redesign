@@ -1,0 +1,82 @@
+[
+    {
+        "commentNumber": 3,
+        "header": "Basketbol Liginde Sürpriz Sonuç",
+        "img": "https://picsum.photos/seed/8173/400/200",
+        "likedNumber": 5,
+        "savedNumber": 7,
+        "seenNumber": 34,
+        "time": "November 21, 2024 at 1:41:15 PM UTC+3",
+        "topic": "Spor"
+    },
+    {
+        "commentNumber": 6,
+        "header": "Yeni AI Modeli Duyuruldu",
+        "img": "https://picsum.photos/seed/4070/400/200",
+        "likedNumber": 12,
+        "savedNumber": 4,
+        "seenNumber": 25,
+        "time": "November 19, 2024 at 12:36:45 PM UTC+3",
+        "topic": "Teknoloji"
+    },
+    {
+        "commentNumber": 5,
+        "header": "Çığır Açan Yazılım Güncellemesi",
+        "img": "https://picsum.photos/seed/3764/400/200",
+        "likedNumber": 1,
+        "savedNumber": 5,
+        "seenNumber": 61,
+        "time": "November 23, 2024 at 9:14:46 PM UTC+3",
+        "topic": "Teknoloji"
+    },
+    {
+        "commentNumber": 3,
+        "header": "Çığır Açan Yazılım Güncellemesi",
+        "img": "https://picsum.photos/seed/7289/400/200",
+        "likedNumber": 13,
+        "savedNumber": 1,
+        "seenNumber": 79,
+        "time": "November 24, 2024 at 11:22:22 PM UTC+3",
+        "topic": "Teknoloji"
+    },
+    {
+        "commentNumber": 5,
+        "header": "Uzay Araştırmalarında Yeni Adım",
+        "img": "https://picsum.photos/seed/7108/400/200",
+        "likedNumber": 12,
+        "savedNumber": 8,
+        "seenNumber": 34,
+        "time": "November 19, 2024 at 10:21:16 PM UTC+3",
+        "topic": "Bilim"
+    },
+    {
+        "commentNumber": 8,
+        "header": "Eğitimde Dijitalleşme",
+        "img": "https://picsum.photos/seed/3764/400/200",
+        "likedNumber": 8,
+        "savedNumber": 1,
+        "seenNumber": 57,
+        "time": "November 25, 2024 at 6:46:32 PM UTC+3",
+        "topic": "Eğitim"
+    },
+    {
+        "commentNumber": 8,
+        "header": "Kripto Para Trendleri",
+        "img": "https://picsum.photos/seed/6084/400/200",
+        "likedNumber": 10,
+        "savedNumber": 9,
+        "seenNumber": 80,
+        "time": "November 20, 2024 at 2:23:13 PM UTC+3",
+        "topic": "Ekonomi"
+    },
+    {
+        "commentNumber": 8,
+        "header": "Yeni Okul Programı Tanıtıldı",
+        "img": "https://picsum.photos/seed/2112/400/200",
+        "likedNumber": 4,
+        "savedNumber": 3,
+        "seenNumber": 71,
+        "time": "November 23, 2024 at 4:39:13 PM UTC+3",
+        "topic": "Eğitim"
+    }
+]
