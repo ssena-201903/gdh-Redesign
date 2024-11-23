@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import "./Advertisement.scss";
 
 import { getRandomImage } from "../../../unsplashService";
 
-const Advertisement = ({ width, height, margin }) => {
+const Advertisement = ({ width, height, margin, addFontSize }) => {
   const [imgUrl, setImgUrl] = useState("");
 
   useEffect(() => {
@@ -23,13 +24,24 @@ const Advertisement = ({ width, height, margin }) => {
       className="main-advertisement"
       style={{ width: width, height: height, margin: margin }}
     >
-      {imgUrl ? (
-        <img src={imgUrl} alt="Random_Unsplash"></img>
-      ) : (
-        <p>Loading Image...</p>
-      )}
+      <div className="advertisement-img">
+        {imgUrl ? (
+          <img src={imgUrl} alt="Random_Unsplash"></img>
+        ) : (
+          <p>Loading Image...</p>
+        )}
+
+        <h3 className="advertisement-text">The Brand</h3>
+      </div>
     </div>
   );
+};
+
+Advertisement.propTypes = {
+  with: PropTypes.string,
+  height: PropTypes.string,
+  margin: PropTypes.string,
+  addFontSize: PropTypes.string,
 };
 
 export default Advertisement;
