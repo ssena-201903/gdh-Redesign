@@ -8,7 +8,7 @@ $font-family: "Montserrat", sans-serif;
   display: flex;
   flex-direction: column;
   width: 340px;
-  height: 480px;
+  height: 450px;
   margin: 20px;
   padding: 10px 20px;
   background-color: $primary-white;
@@ -39,6 +39,9 @@ $font-family: "Montserrat", sans-serif;
     opacity: 0.9;
     font-weight: 700;
     margin: 16px 20px;
+    width: 90%;
+    height: 60px;
+    overflow: hidden;
   }
 
   .card-content {
@@ -76,7 +79,7 @@ $font-family: "Montserrat", sans-serif;
       img {
         width: 100%;
         border-radius: 8px;
-        height: auto;
+        height: 100%;
         background-size: cover;
         background-position: center;
       }

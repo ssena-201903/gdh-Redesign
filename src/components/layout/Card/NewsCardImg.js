@@ -20,7 +20,7 @@ const NewsCardImg = () => {
   const [seenCount, setSeenCount] = useState(0);
   const [savedCount, setSavedCount] = useState(0);
   const [topicName, setTopicName] = useState("");
-  const [time, setTime] = useState("");
+  const [time, setTime] = useState("0 dk");
   const [header, setHeader] = useState("");
 
   //convert time to an object and show on the post
@@ -46,7 +46,7 @@ const NewsCardImg = () => {
     }
 
     setTime(timeString);
-    // console.log("geçen süre: ", timeString);
+    console.log("geçen süre: ", timeString);
   };
 
   useEffect(() => {
@@ -78,13 +78,13 @@ const NewsCardImg = () => {
           if (randomDoc.exists()) {
             const postData = randomDoc.data();
             setTopicName(postData.topic);
-            handleTime(postData.time);
             setHeader(postData.header);
             setCommentCount(postData.commentNumber);
             setSeenCount(postData.seenNumber);
             setLikedCount(postData.likedNumber);
             setImgUrl(postData.img);
             setSavedCount(postData.savedNumber);
+            handleTime(postData.time);
           } else {
             console.log("No document found for the selected ID.");
           }
