@@ -1,4 +1,3 @@
-import React from 'react'
 import Proptypes from 'prop-types';
 
 const AboutUsIcon = ({size, color, margin}) => { 
