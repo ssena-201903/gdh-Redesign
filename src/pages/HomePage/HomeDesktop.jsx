@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./HomePage.scss";
+import "./HomeDesktop.scss";
 //components
 import Header from "../../components/layout/Header/TopHeader";
 import TopHeader from "../../components/layout/Header/Header";

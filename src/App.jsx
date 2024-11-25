@@ -3,7 +3,7 @@
 // import Header from './components/layout/Header/Header'
 // import TopHeader from './components/layout/Header/TopHeader';
 // import NavbarOpen from './components/layout/Navbar/NavbarOpen';
-import HomePage from './pages/HomePage/HomePage';
+import HomeDesktop from './pages/HomePage/HomeDesktop';
 import './App.scss';
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div>
-      <HomePage />
+      <HomeDesktop />
     </div>
   );
 }
