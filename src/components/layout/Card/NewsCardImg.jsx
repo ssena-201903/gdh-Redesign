@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./NewsCardImg.scss";
 // import { getRandomImage } from "../../../unsplashService";
 
-import { getDocs, collection, doc, getDoc } from "firebase/firestore";
+import { getDocs, collection, doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../../firebaseConfig";
 
 import CommentIcon from "../../icons/CommentIcon";
@@ -22,6 +22,60 @@ const NewsCardImg = () => {
   const [topicName, setTopicName] = useState("");
   const [time, setTime] = useState("0 dk");
   const [header, setHeader] = useState("");
+  const [documentId, setDocumentId] = useState("");
+  const [isLiked, setIsLiked] = useState(false);
+  const [isSaved, setIsSaved] = useState(false);
+
+  // if heart icon is not filled
+  const handleUnLikedCount = async () => {
+    setLikedCount((prevCount) => prevCount + 1);
+
+    if (documentId) {
+      const postRef = doc(db, "news", documentId);
+      await updateDoc(postRef, { likedNumber: likedCount + 1 });
+      await updateDoc(postRef, {isLiked: true});
+    }
+  };
+
+  // if heart icon is filled
+  const handleLikedCount = async () => {
+    if (likedCount > 0) {
+      setLikedCount((prevCount) => prevCount - 1);
+    }
+
+    if (documentId) {
+      const postRef = doc(db, "news", documentId);
+      await updateDoc(postRef, { likedNumber: likedCount - 1 });
+      setIsLiked(!isLiked);
+      await updateDoc(postRef, {isLiked: false});
+    }
+  };
+
+  // if save icon is filled
+  const handleSavedCount = async () => {
+    if (savedCount > 0) {
+      setSavedCount((prevCount) => prevCount - 1);
+    }
+
+    if (documentId) {
+      const postRef = doc(db, "news", documentId);
+      await updateDoc(postRef, {savedNumber: savedCount - 1});
+      setIsSaved(!isSaved);
+      await updateDoc(postRef, {isSaved: isSaved});
+    }
+  };
+
+  // if save icon is not filled
+  const handleUnSavedCount = async () => {
+    setSavedCount((prevCount) => prevCount + 1);
+
+    if (documentId) {
+      const postRef = doc(db, "news", documentId);
+      await updateDoc(postRef, {savedNumber: savedCount + 1});
+      setIsSaved(!isSaved);
+      await updateDoc(postRef, {isSaved: isSaved});
+    }
+  };
 
   //convert time to an object and show on the post
   const handleTime = (time) => {
@@ -62,19 +116,20 @@ const NewsCardImg = () => {
       try {
         const postRef = collection(db, "news");
         const snapshot = await getDocs(postRef);
-    
+
         if (!snapshot.empty) {
           // Belge kimliklerini topla
           const docIds = snapshot.docs.map((doc) => doc.id);
-    
+
           // Rastgele bir ID seç
           const randomIndex = Math.floor(Math.random() * docIds.length);
           const randomId = docIds[randomIndex];
-    
+          setDocumentId(randomId);
+
           // Seçilen belgeyi getir
           const randomDocRef = doc(db, "news", randomId);
           const randomDoc = await getDoc(randomDocRef);
-    
+
           if (randomDoc.exists()) {
             const postData = randomDoc.data();
             setTopicName(postData.topic);
@@ -84,6 +139,8 @@ const NewsCardImg = () => {
             setLikedCount(postData.likedNumber);
             setImgUrl(postData.img);
             setSavedCount(postData.savedNumber);
+            setIsLiked(postData.isLiked || false)
+            setIsSaved(postData.isSaved || false);
             handleTime(postData.time);
           } else {
             console.log("No document found for the selected ID.");
@@ -130,11 +187,23 @@ const NewsCardImg = () => {
           <p>{commentCount}</p>
         </div>
         <div className="icon-item">
-          <HeartIcon size="16px" color="rgb(24, 23, 49, 0.6)" />
+          <HeartIcon
+            size="16px"
+            color="rgb(24, 23, 49, 0.6)"
+            onClickDown={handleLikedCount}
+            onClickUp={handleUnLikedCount}
+            isLiked={isLiked}
+          />
           <p>{likedCount}</p>
         </div>
         <div className="icon-item">
-          <SaveIcon size="16px" color="rgb(24, 23, 49, 0.6)" />
+          <SaveIcon
+            size="16px"
+            color="rgb(24, 23, 49, 0.6)"
+            onClickInc={handleUnSavedCount}
+            onClickDec={handleSavedCount}
+            isSaved={isSaved}
+          />
           <p>{savedCount}</p>
         </div>
         <div className="icon-item">
