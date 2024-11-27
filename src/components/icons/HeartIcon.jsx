@@ -64,6 +64,8 @@ HeartIcon.propTypes = {
 
 HeartIcon.defaultProps = {
   isLiked: false, 
+  color: "rgb(24, 23, 49, 0.6)",
+  size: "20px",
 };
 
 export default HeartIcon;
