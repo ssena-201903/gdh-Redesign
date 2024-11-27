@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./NewsCardImg.scss";
 // import { getRandomImage } from "../../../unsplashService";
 
@@ -31,6 +32,11 @@ const NewsCardImg = () => {
   const [documentId, setDocumentId] = useState("");
   const [isLiked, setIsLiked] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
+
+  const navigate = useNavigate();
+  const goToContentPage = () => {
+    navigate('/content');
+  };
 
   // if heart icon is not filled
   const handleUnLikedCount = async () => {
@@ -193,9 +199,9 @@ const NewsCardImg = () => {
         </div>
       </div>
       <div className="go-to-content">
-        <a href="google.com" target="_blank">
+        <p onClick={goToContentPage}>
           Haber sayfasına git
-        </a>
+        </p>
       </div>
       <div className="card-icons">
         <div className="icon-item">
