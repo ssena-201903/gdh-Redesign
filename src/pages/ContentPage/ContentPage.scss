@@ -1,0 +1,61 @@
+$primary-black: #181731;
+$primary-red: #e62a27;
+$font-family: "Montserrat", sans-serif;
+
+.main-home-page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: auto;
+
+  .top {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: 20%;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: white;
+  }
+  .bottom {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+
+    .navbar-home-page {
+      width: 14%;
+      height: fit-content;
+      position: sticky;
+      position: -webkit-sticky;
+      overflow-y: auto;
+      overflow-x: hidden;
+      top: 0;
+    }
+    .news-cards-home-page {
+      // position: relative;
+      display: flex;
+      flex-direction: column;
+      width: 86%;
+      height: fit-content;
+      padding: 0;
+      margin: 10px 10px;
+      background-color: white;
+      .header-cards-wrap {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        // justify-content: ;
+      }
+      .cards-wrap-home-page {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1px;
+        justify-content: flex-start;
+        margin: 0 10px;
+      }
+    }
+  }
+}

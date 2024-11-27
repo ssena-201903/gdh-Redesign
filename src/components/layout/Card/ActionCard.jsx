@@ -1,5 +1,4 @@
 import PropTypes from "prop-types"
-import "./ActionCard.scss";
 import HeartIcon from "../../icons/HeartIcon";
 import SaveIcon from "../../icons/SaveIcon";
 import ShareIcon from "../../icons/ShareIcon";
@@ -9,7 +8,7 @@ import UrlIcon from "../../icons/UrlIcon";
 const ActionCard = ({ width, height, margin, color, padding }) => {
   const cardStyle = {
     border: `1px solid ${color}`,
-    borderRadius: "20px",
+    borderRadius: "28px",
     display: "flex",
     flexDirection: "row",
     alignItems: "center",

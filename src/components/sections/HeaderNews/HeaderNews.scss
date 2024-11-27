@@ -1,0 +1,47 @@
+$primary-black: #181731;
+
+.header-news {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 90%;
+  height: fit-content;
+  margin: 0 30px;
+  padding: 8px 30px;
+//   border: 1px solid black;
+
+  .home-title {
+    font-size: 16px;
+    font-weight: 300;
+    color: $primary-black;
+  }
+  .type-news {
+    font-size: 24px;
+    font-weight: 600;
+    color: $primary-black;
+  }
+  .profile-header-news {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 300px;
+    margin: 0 40px 0 120px;
+    img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+    }
+    .editor-name {
+        width: 120px;
+        margin: 0 4px 0 16px;
+        font-weight: 400;
+        color: rgba(0, 0, 0, 0.436)
+    }
+    .edit-time {
+        @extend .editor-name;
+        margin: 0 8px 0 4px;
+    }
+  }
+}
