@@ -2,7 +2,13 @@ import React, { useState, useEffect } from "react";
 import "./NewsCardImg.scss";
 // import { getRandomImage } from "../../../unsplashService";
 
-import { getDocs, collection, doc, getDoc, updateDoc } from "firebase/firestore";
+import {
+  getDocs,
+  collection,
+  doc,
+  getDoc,
+  updateDoc,
+} from "firebase/firestore";
 import { db } from "../../../firebaseConfig";
 
 import CommentIcon from "../../icons/CommentIcon";
@@ -28,52 +34,62 @@ const NewsCardImg = () => {
 
   // if heart icon is not filled
   const handleUnLikedCount = async () => {
-    setLikedCount((prevCount) => prevCount + 1);
+    if (!isLiked) {
+      setLikedCount((prevCount) => prevCount + 1);
 
-    if (documentId) {
-      const postRef = doc(db, "news", documentId);
-      await updateDoc(postRef, { likedNumber: likedCount + 1 });
-      await updateDoc(postRef, {isLiked: true});
+      if (documentId) {
+        const postRef = doc(db, "news", documentId);
+        await updateDoc(postRef, {
+          likedNumber: likedCount + 1,
+          isLiked: true,
+        });
+      }
+      setIsLiked(true);
     }
   };
 
   // if heart icon is filled
   const handleLikedCount = async () => {
-    if (likedCount > 0) {
+    if (isLiked && likedCount > 0) {
       setLikedCount((prevCount) => prevCount - 1);
-    }
 
-    if (documentId) {
-      const postRef = doc(db, "news", documentId);
-      await updateDoc(postRef, { likedNumber: likedCount - 1 });
-      setIsLiked(!isLiked);
-      await updateDoc(postRef, {isLiked: false});
+      if (documentId) {
+        const postRef = doc(db, "news", documentId);
+        await updateDoc(postRef, {
+          likedNumber: likedCount - 1,
+          isLiked: false,
+        });
+      }
+      setIsLiked(false);
     }
   };
 
   // if save icon is filled
   const handleSavedCount = async () => {
-    if (savedCount > 0) {
+    if (isSaved && savedCount > 0) {
       setSavedCount((prevCount) => prevCount - 1);
-    }
 
-    if (documentId) {
-      const postRef = doc(db, "news", documentId);
-      await updateDoc(postRef, {savedNumber: savedCount - 1});
-      setIsSaved(!isSaved);
-      await updateDoc(postRef, {isSaved: isSaved});
+      if (documentId) {
+        const postRef = doc(db, "news", documentId);
+        await updateDoc(postRef, {
+          savedNumber: savedCount - 1,
+          isSaved: false,
+        });
+        setIsSaved(false);
+      }
     }
   };
 
   // if save icon is not filled
   const handleUnSavedCount = async () => {
-    setSavedCount((prevCount) => prevCount + 1);
+    if (!isSaved) {
+      setSavedCount((prevCount) => prevCount + 1);
 
-    if (documentId) {
-      const postRef = doc(db, "news", documentId);
-      await updateDoc(postRef, {savedNumber: savedCount + 1});
-      setIsSaved(!isSaved);
-      await updateDoc(postRef, {isSaved: isSaved});
+      if (documentId) {
+        const postRef = doc(db, "news", documentId);
+        await updateDoc(postRef, { savedNumber: savedCount + 1, isSaved: true });
+      }
+      setIsSaved(true);
     }
   };
 
@@ -139,7 +155,7 @@ const NewsCardImg = () => {
             setLikedCount(postData.likedNumber);
             setImgUrl(postData.img);
             setSavedCount(postData.savedNumber);
-            setIsLiked(postData.isLiked || false)
+            setIsLiked(postData.isLiked || false);
             setIsSaved(postData.isSaved || false);
             handleTime(postData.time);
           } else {
@@ -190,8 +206,8 @@ const NewsCardImg = () => {
           <HeartIcon
             size="16px"
             color="rgb(24, 23, 49, 0.6)"
-            onClickDown={handleLikedCount}
-            onClickUp={handleUnLikedCount}
+            onClickDec={handleLikedCount}
+            onClickInc={handleUnLikedCount}
             isLiked={isLiked}
           />
           <p>{likedCount}</p>

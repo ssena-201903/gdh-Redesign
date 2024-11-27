@@ -8,11 +8,11 @@ const HeartIcon = ({ size, color, margin, onClickInc, onClickDec, isLiked }) => 
     setIsClicked(isLiked);
   }, [isLiked]);
 
-  const handleClick = () => {
+  const handleClick = async() => {
     if (isClicked) {
-      onClickDec();
+      await onClickDec();
     } else {
-      onClickInc(); 
+      await onClickInc(); 
     }
     setIsClicked(!isClicked);
   };
@@ -57,8 +57,8 @@ HeartIcon.propTypes = {
   size: PropTypes.string, 
   color: PropTypes.string, 
   margin: PropTypes.string, 
-  onClickUp: PropTypes.func, 
-  onClickDown: PropTypes.func, 
+  onClickInc: PropTypes.func, 
+  onClickDec: PropTypes.func, 
   isLiked: PropTypes.bool, 
 };
 
