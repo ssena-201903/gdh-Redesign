@@ -25,8 +25,16 @@
     top: 60px;
     right: 170px;
     color: white;
-    font-size: 40px;
+    // font-size: 40px;
     // font-family: 'Poppins', sans-serif;
     font-family: 'Abril Fatface', cursive;
+  }
+  .advertisement-sub-text {
+    @extend .advertisement-text;
+    top: 240px;
+    left: 40px;
+    font-size: 14px;
+    font-weight: 300;
+    font-family: "Montserrat", sans-serif;
   }
 }
