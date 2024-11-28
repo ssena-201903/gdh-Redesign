@@ -9,6 +9,7 @@ import NavbarOpen from "../../components/layout/Navbar/NavbarOpen";
 import UpArrowButton from "../../components/common/UpArrowButton";
 import UpArrowIcon from "../../components/icons/UpArrowIcon";
 import HeaderNews from "../../components/sections/HeaderNews/HeaderNews";
+import NewsArticle from "../../components/sections/NewsArticle/NewsArticle";
 // import ColoredLine from "../../components/layout/Header/ColoredLine";
 // import Advertisement from "../../components/sections/Advertisement/Advertisement";
 
@@ -49,6 +50,7 @@ const ContentPage = () => {
           <div className="header-cards-wrap">
             <HeaderNews/>
           </div>
+          <NewsArticle/>
         </div>
         <div className="sections-home-page"></div>
       </div>
@@ -58,7 +60,7 @@ const ContentPage = () => {
             <UpArrowIcon size="24px" color="#181731" margin="0" />
           )}
           top="600px"
-          left="840px"
+          left="720px"
           onClick={scrollToUp}
         />
       )}

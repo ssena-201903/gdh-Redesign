@@ -47,7 +47,7 @@ const HomePage = () => {
         </div>
         <div className="news-cards-home-page">
           <div className="header-cards-wrap">
-            <h5>Size Özel</h5>
+            <h5 className="header-grid-news">Size Özel</h5>
             <ColoredLine width="1090px" height="5px" />
           </div>
           <CardsGrid/>
