@@ -1,13 +1,14 @@
 import React from "react";
 import "./Header.scss";
-import logoPath from "../../../assets/logo.png";
+// import logoPath from "../../../assets/logo.png";
+import Logo from "../../common/Logo";
 import SearchIcon from "../../icons/SearchIcon";
 
 export default function Header() {
   return (
     <div>
       <div className="header">
-        <img src={logoPath} alt="app_logo"></img>
+        <Logo width="60px" height="auto" margin="0 20px" />
         <div className="header-titles">
           <a href="google.com" target="blank">
             SON DAKİKA
