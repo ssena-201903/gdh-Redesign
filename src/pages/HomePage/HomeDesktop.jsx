@@ -43,7 +43,7 @@ const HomePage = () => {
       </div>
       <div className="bottom">
         <div className="navbar-home-page">
-          <NavbarOpen />
+          <NavbarOpen variant={true}/>
         </div>
         <div className="news-cards-home-page">
           <div className="header-cards-wrap">

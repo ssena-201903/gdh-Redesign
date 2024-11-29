@@ -1,0 +1,49 @@
+$primary-black: #181731;
+$primary-red: #E62A27;
+$font-family: "Montserrat", sans-serif;
+
+.navbar-container {
+    display: flex;
+    flex-direction: column;
+    background-color: $primary-black;
+    color: white;
+    height: 100vh;
+    transition: width 0.3s ease;
+    position: relative;
+  }
+  
+  .collapsed {
+    width: 60px;
+  }
+  
+  .expanded {
+    width: 200px;
+  }
+  
+  .hamburger-icon {
+    margin: 20px;
+    cursor: pointer;
+  }
+  
+  .navbar-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .navbar-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+  
+    p {
+      display: none;
+      font-size: 16px;
+      font-weight: 300;
+    }
+  
+    .expanded & p {
+      display: inline;
+    }
+  }
+  

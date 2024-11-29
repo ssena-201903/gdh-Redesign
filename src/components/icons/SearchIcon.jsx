@@ -1,13 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 
-const SearchIcon = ({size, color, margin}) => {
+const SearchIcon = ({size, color, margin, onClick}) => {
     // const iconClass = variant === 'filled' ? "fa-solid fa-magnifying-glass" : 
   return (
     <i
         className='bi bi-search'
-        style={{fontSize: size, color: color, margin: margin}}
+        style={{fontSize: size, color: color, margin: margin, cursor: "pointer"}}
         aria-hidden="true"
+        onClick={onClick}
     />
   )
 }

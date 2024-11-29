@@ -38,7 +38,7 @@ export default function NavbarOpen() {
         </div>
       </div>
       <div className="navbar-open-bottom">
-        <FollowUs 
+        <FollowUs
           padding="0 10px 0 0"
           margin="10px 0"
           width="85%"

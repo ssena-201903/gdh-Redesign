@@ -1,11 +1,12 @@
 import Proptypes from 'prop-types';
 
-const AboutUsIcon = ({size, color, margin}) => { 
+const AboutUsIcon = ({size, color, margin, onClick}) => { 
   return (
     <i
         className="bi bi-file-earmark-text"
-        style={{fontSize: size, color: color, margin: margin}}
+        style={{fontSize: size, color: color, margin: margin, cursor: "pointer"}}
         aria-hidden="true"
+        onClick={onClick}
     />
   )
 }

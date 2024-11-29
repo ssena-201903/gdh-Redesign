@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const GraphIcon = ({size, color, margin}) => {
+const GraphIcon = ({size, color, margin, onClick}) => {
   return (
     <i
       className="bi bi-bar-chart-line"
-      style={{ fontSize: size, color: color, margin: margin }}
+      style={{ fontSize: size, color: color, margin: margin, cursor: "pointer" }}
       aria-hidden="true"
+      onClick={onClick}
     />
   );
 };

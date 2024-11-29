@@ -3,7 +3,8 @@ import "./ContentPage.scss";
 //components
 import Header from "../../components/layout/Header/TopHeader";
 import TopHeader from "../../components/layout/Header/Header";
-import NavbarOpen from "../../components/layout/Navbar/NavbarOpen";
+// import NavbarOpen from "../../components/layout/Navbar/NavbarOpen";
+import NavbarClose from "../../components/layout/Navbar/NavbarClose";
 // import FollowUs from "../../components/sections/Advertisement/FollowUs";
 // import NewsCardImg from "../../components/layout/Card/NewsCardImg";
 import UpArrowButton from "../../components/common/UpArrowButton";
@@ -44,7 +45,7 @@ const ContentPage = () => {
       </div>
       <div className="bottom">
         <div className="navbar-home-page">
-          <NavbarOpen />
+          <NavbarClose/>
         </div>
         <div className="news-cards-home-page">
           <div className="header-cards-wrap">
