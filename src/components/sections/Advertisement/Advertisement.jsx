@@ -6,7 +6,7 @@ import { getRandomImage } from "../../../unsplashService";
 import CloseIcon from "../../icons/CloseIcon";
 
 const Advertisement = ({ width, height, margin, addFontSize }) => {
-  const [imgUrl, setImgUrl] = useState("https://picsum.photos/seed/6084/400/200");
+  const [imgUrl, setImgUrl] = useState("https://picsum.photos/seed/6084/900/300");
   const [isAdVisible, setIsAdVisible] = useState(true);
   const [isRemovedMessageVisible, setIsRemovedMessageVisible] = useState(false);
 
@@ -73,6 +73,7 @@ const Advertisement = ({ width, height, margin, addFontSize }) => {
             textAlign: "center",
             lineHeight: "30px",
             margin: "10px auto",
+            borderRadius: "4px",
           }}
         >
           Reklam Kaldırıldı...

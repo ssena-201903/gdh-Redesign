@@ -31,6 +31,7 @@ const CardsGrid = () => {
                     width="1200px"
                     height="300px"
                     margin="30px"
+                    addFontSize="54px"
                 />
             ) : (
                 <NewsCardImg key={item.id}/>

@@ -17,6 +17,7 @@ import HeartIcon from "../../icons/HeartIcon";
 import SaveIcon from "../../icons/SaveIcon";
 import EyeIcon from "../../icons/EyeIcon";
 import ShareIcon from "../../icons/ShareIcon";
+import NewsPara from "../../sections/NewsArticle/NewsPara";
 // import SendIcon from "../../icons/SendIcon";
 // import CommentCard from "./CommentCard";
 
@@ -29,13 +30,14 @@ const NewsCardImg = () => {
   const [topicName, setTopicName] = useState("");
   const [time, setTime] = useState("0 dk");
   const [header, setHeader] = useState("");
+  const [newsPara, setNewsPara] = useState("");
   const [documentId, setDocumentId] = useState("");
   const [isLiked, setIsLiked] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
 
   const navigate = useNavigate();
   const goToContentPage = () => {
-    navigate('/content');
+    navigate("/content");
   };
 
   // if heart icon is not filled
@@ -93,7 +95,10 @@ const NewsCardImg = () => {
 
       if (documentId) {
         const postRef = doc(db, "news", documentId);
-        await updateDoc(postRef, { savedNumber: savedCount + 1, isSaved: true });
+        await updateDoc(postRef, {
+          savedNumber: savedCount + 1,
+          isSaved: true,
+        });
       }
       setIsSaved(true);
     }
@@ -161,6 +166,7 @@ const NewsCardImg = () => {
             setLikedCount(postData.likedNumber);
             setImgUrl(postData.img);
             setSavedCount(postData.savedNumber);
+            setNewsPara(postData.para);
             setIsLiked(postData.isLiked || false);
             setIsSaved(postData.isSaved || false);
             handleTime(postData.time);
@@ -178,18 +184,19 @@ const NewsCardImg = () => {
   }, []);
 
   return (
-    <div className="main-news-card-img">
+    <div
+      className="main-news-card-img"
+      style={{ cursor: "pointer" }}
+    >
       <div className="card-top-header">
         <p className="topic">{topicName}</p>
         <p className="set-time">{time}</p>
       </div>
       <h5>{header}</h5>
       <div className="card-content">
-        {/* <p className="content-text">
-          Lorem ipsum dolor sit amet consectetur. Etiam cras pharetra ac mattis
-          volutpat euismod lacus sit eget. Eget mi velit pellentesque vestibulum
-          vitae.
-        </p> */}
+        <div className="content-text">
+        <NewsPara text={newsPara} margin="20px 0" fontSize="16px"/>
+        </div>
         <div className="content-img">
           {imgUrl ? (
             <img src={imgUrl} alt="Random_Picsum" />
@@ -199,9 +206,7 @@ const NewsCardImg = () => {
         </div>
       </div>
       <div className="go-to-content">
-        <p onClick={goToContentPage}>
-          Haber sayfasına git
-        </p>
+        <p onClick={goToContentPage}>Haber sayfasına git</p>
       </div>
       <div className="card-icons">
         <div className="icon-item">
@@ -236,18 +241,6 @@ const NewsCardImg = () => {
           <ShareIcon size="16px" color="rgb(24, 23, 49, 0.6)" />
         </div>
       </div>
-      {/* <div className="card-comment">
-        <CommentCard
-          IconComponent={SendIcon}
-          textSize="16px"
-          margin="20px 10px"
-          padding="4px 16px"
-          width="380px"
-          height="30px"
-          iconSize="16px"
-          iconColor="rgb(24, 23, 49, 0.6)"
-        />
-      </div> */}
     </div>
   );
 };
