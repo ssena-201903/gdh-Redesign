@@ -52,7 +52,6 @@ const ContentPage = () => {
           <div
             className="news-article-content-page"
             style={{
-              // marginTop: isNavbarOpen ? "40px" : "0",
               transform: isNavbarOpen
                 ? "translateX(20px)"
                 : "translateX(-100px)",
@@ -64,9 +63,8 @@ const ContentPage = () => {
           <div
             className="cards-grid-content"
             style={{
-              // marginTop: isNavbarOpen ? "40px" : "0",
               transform: isNavbarOpen
-                ? "translateX(-60px)"
+                ? "translateX(-10px)"
                 : "translateX(-90px)"
             }}
           >

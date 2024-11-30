@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { NavbarContext } from "../../../context/NavbarContext";
 import { useNavigate } from "react-router-dom";
 import "./NewsCard.scss";
 // import { getRandomImage } from "../../../unsplashService";
@@ -15,6 +16,8 @@ const NewsCard = () => {
   const [header, setHeader] = useState("");
   const [newsPara, setNewsPara] = useState("");
   const [documentId, setDocumentId] = useState("");
+
+  const { isNavbarOpen } = useContext(NavbarContext);
 
   const navigate = useNavigate();
   const goToContentPage = () => {
@@ -87,17 +90,29 @@ const NewsCard = () => {
   }, []);
 
   return (
-    <div className="main-news-card" style={{ cursor: "pointer" }}>
+    <div
+      className="main-news-card"
+      style={{
+        cursor: "pointer",
+        width: isNavbarOpen ? "200px" : "280px",
+        transition: "flex 0.3s ease",
+      }}
+    >
       <div className="card-top-header">
         <p className="topic">{topicName}</p>
         <p className="set-time">{time}</p>
       </div>
       <h5>{header}</h5>
-      <div className="card-content">
-        <div className="content-text">
-          <NewsPara text={newsPara} margin="0" fontSize="16px" lineHeight="1.75" />
+      <div className="card-content" style={{height: isNavbarOpen ? "200px" : "180px"}}>
+        <div className="content-text" style={{width: isNavbarOpen ? "100%" : "50%"}}>
+          <NewsPara
+            text={newsPara}
+            margin="0"
+            fontSize="16px"
+            lineHeight="1.75"
+          />
         </div>
-        <div className="content-img">
+        <div className="content-img" style={{width: isNavbarOpen ? "0" : "50%"}}>
           {imgUrl ? (
             <img src={imgUrl} alt="Random_Picsum" />
           ) : (
