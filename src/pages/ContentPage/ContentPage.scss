@@ -2,7 +2,7 @@ $primary-black: #181731;
 $primary-red: #e62a27;
 $font-family: "Montserrat", sans-serif;
 
-.main-home-page {
+.main-content-page {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -25,7 +25,7 @@ $font-family: "Montserrat", sans-serif;
     width: 100%;
     height: 100%;
 
-    .navbar-home-page {
+    .navbar-content-page {
       width: 14%;
       height: fit-content;
       position: sticky;
@@ -33,8 +33,9 @@ $font-family: "Montserrat", sans-serif;
       overflow-y: auto;
       overflow-x: hidden;
       top: 0;
+      left: 0;
     }
-    .news-cards-home-page {
+    .news-cards-content-page {
       // position: relative;
       display: flex;
       flex-direction: column;
@@ -43,13 +44,14 @@ $font-family: "Montserrat", sans-serif;
       padding: 0;
       margin: 10px 10px;
       background-color: white;
+      transition: transform 0.3s ease;
       .header-cards-wrap {
         display: flex;
         flex-direction: row;
         align-items: center;
         // justify-content: ;
       }
-      .cards-wrap-home-page {
+      .cards-wrap-content-page {
         display: flex;
         flex-wrap: wrap;
         gap: 1px;

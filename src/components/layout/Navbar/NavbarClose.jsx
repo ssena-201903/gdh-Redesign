@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 import SearchIcon from "../../icons/SearchIcon";
 import HashtagIcon from "../../icons/HashtagIcon";
 import CommentIcon from "../../icons/CommentIcon";
@@ -9,18 +9,20 @@ import HamburgerMenuIcon from "../../icons/HamburgerMenuIcon";
 import CloseIcon from "../../icons/CloseIcon";
 
 import "./NavbarClose.scss";
+import { useNavbar } from "../../../context/NavbarContext";
 
 const NavbarClose = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isNavbarOpen, toggleNavbar } = useNavbar();
   // to open/close menu
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  // const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
     <div
-      className={`navbar-container ${isMenuOpen ? "expanded" : "collapsed"}`}
+      className={`navbar-container ${isNavbarOpen ? "expanded" : "collapsed"}`}
     >
-      <div className="hamburger-icon" onClick={toggleMenu}>
-        {isMenuOpen ? (
+      <div className="hamburger-icon" onClick={toggleNavbar}>
+        {isNavbarOpen ? (
           <CloseIcon size="20px" color="white" margin="20px auto 8px" top="1px" right="20px" />
         ) : (
           <HamburgerMenuIcon size="24px" color="white" margin="20px auto 8px" />
@@ -29,27 +31,27 @@ const NavbarClose = () => {
       <div className="navbar-content">
         <div className="navbar-item">
           <SearchIcon size="20px" color="white" margin="0 20px 8px 20px" />
-          {isMenuOpen && <p>Keşfet</p>}
+          {isNavbarOpen && <p>Keşfet</p>}
         </div>
         <div className="navbar-item">
           <HashtagIcon size="20px" color="white" margin="0 20px 8px 20px" />
-          {isMenuOpen && <p>Trendler</p>}
+          {isNavbarOpen && <p>Trendler</p>}
         </div>
         <div className="navbar-item">
           <CommentIcon size="20px" color="white" margin="0 20px 8px 20px" />
-          {isMenuOpen && <p>Tartışma</p>}
+          {isNavbarOpen && <p>Tartışma</p>}
         </div>
         <div className="navbar-item">
           <RocketIcon size="20px" color="white" margin="0 20px 8px 20px" />
-          {isMenuOpen && <p>Teknofest</p>}
+          {isNavbarOpen && <p>Teknofest</p>}
         </div>
         <div className="navbar-item">
           <GraphIcon size="20px" color="white" margin="0 20px 8px 20px" />
-          {isMenuOpen && <p>İnfografik</p>}
+          {isNavbarOpen && <p>İnfografik</p>}
         </div>
         <div className="navbar-item">
           <AboutUsIcon size="20px" color="white" margin="0 20px 8px 20px" />
-          {isMenuOpen && <p>Bize Dair</p>}
+          {isNavbarOpen && <p>Bize Dair</p>}
         </div>
       </div>
     </div>

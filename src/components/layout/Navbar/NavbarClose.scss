@@ -33,8 +33,9 @@ $font-family: "Montserrat", sans-serif;
   .navbar-item {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
     margin: 10px 0;
+    cursor: pointer;
   
     p {
       display: none;
