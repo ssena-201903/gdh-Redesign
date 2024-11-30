@@ -66,7 +66,7 @@ const ContentPage = () => {
             <UpArrowIcon size="24px" color="#181731" margin="0" />
           )}
           top="600px"
-          left="720px"
+          left={isNavbarOpen ? "720px" : "580px"}
           onClick={scrollToUp}
         />
       )}
