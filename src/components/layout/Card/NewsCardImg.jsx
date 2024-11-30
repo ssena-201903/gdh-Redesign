@@ -21,7 +21,7 @@ import NewsPara from "../../sections/NewsArticle/NewsPara";
 // import SendIcon from "../../icons/SendIcon";
 // import CommentCard from "./CommentCard";
 
-const NewsCardImg = () => {
+const NewsCardImg = ({ width }) => {
   const [imgUrl, setImgUrl] = useState("");
   const [likedCount, setLikedCount] = useState(0);
   const [commentCount, setCommentCount] = useState(0);
@@ -145,15 +145,15 @@ const NewsCardImg = () => {
         const snapshot = await getDocs(postRef);
 
         if (!snapshot.empty) {
-          // Belge kimliklerini topla
+          // collect doc ids
           const docIds = snapshot.docs.map((doc) => doc.id);
 
-          // Rastgele bir ID seç
+          // pic a random id
           const randomIndex = Math.floor(Math.random() * docIds.length);
           const randomId = docIds[randomIndex];
           setDocumentId(randomId);
 
-          // Seçilen belgeyi getir
+          // get selected doc
           const randomDocRef = doc(db, "news", randomId);
           const randomDoc = await getDoc(randomDocRef);
 
@@ -186,7 +186,6 @@ const NewsCardImg = () => {
   return (
     <div
       className="main-news-card-img"
-      style={{ cursor: "pointer" }}
     >
       <div className="card-top-header">
         <p className="topic">{topicName}</p>

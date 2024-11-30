@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavbar } from "../../context/NavbarContext";
+import { ContentProvider } from "../../context/ContentContext";
 
 //components
 import Header from "../../components/layout/Header/TopHeader";
@@ -11,6 +12,7 @@ import HeaderNews from "../../components/sections/HeaderNews/HeaderNews";
 import NewsArticle from "../../components/sections/NewsArticle/NewsArticle";
 
 import "./ContentPage.scss";
+import CardsGridContent from "../../components/layout/Card/CardsGridContent";
 
 const ContentPage = () => {
   const { isNavbarOpen } = useNavbar();
@@ -37,40 +39,52 @@ const ContentPage = () => {
   };
 
   return (
-    <div className="main-content-page">
-      <div className="top">
-        <Header />
-        <TopHeader />
-      </div>
-      <div className="bottom">
-        <div className="navbar-content-page">
-          <NavbarClose />
+    <ContentProvider>
+      <div className="main-content-page">
+        <div className="top">
+          <Header />
+          <TopHeader />
         </div>
-        <div
-          className="news-cards-content-page"
-          style={{
-            // marginTop: isNavbarOpen ? "40px" : "0",
-            transform: isNavbarOpen ? "translateX(20px)" : "translateX(-100px)",
-          }}
-        >
-          <div className="header-cards-wrap">
-            <HeaderNews />
+        <div className="bottom">
+          <div className="navbar-content-page">
+            <NavbarClose />
           </div>
-          <NewsArticle />
+          <div
+            className="news-article-content-page"
+            style={{
+              // marginTop: isNavbarOpen ? "40px" : "0",
+              transform: isNavbarOpen
+                ? "translateX(20px)"
+                : "translateX(-100px)",
+            }}
+          >
+            <HeaderNews />
+            <NewsArticle />
+          </div>
+          <div
+            className="cards-grid-content"
+            style={{
+              // marginTop: isNavbarOpen ? "40px" : "0",
+              transform: isNavbarOpen
+                ? "translateX(-60px)"
+                : "translateX(-90px)"
+            }}
+          >
+            <CardsGridContent />
+          </div>
         </div>
-        <div className="sections-content-page"></div>
+        {isButtonVisible && (
+          <UpArrowButton
+            IconComponent={() => (
+              <UpArrowIcon size="24px" color="#181731" margin="0" />
+            )}
+            top="600px"
+            left={isNavbarOpen ? "720px" : "580px"}
+            onClick={scrollToUp}
+          />
+        )}
       </div>
-      {isButtonVisible && (
-        <UpArrowButton
-          IconComponent={() => (
-            <UpArrowIcon size="24px" color="#181731" margin="0" />
-          )}
-          top="600px"
-          left={isNavbarOpen ? "720px" : "580px"}
-          onClick={scrollToUp}
-        />
-      )}
-    </div>
+    </ContentProvider>
   );
 };
 

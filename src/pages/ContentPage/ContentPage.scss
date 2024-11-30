@@ -35,29 +35,20 @@ $font-family: "Montserrat", sans-serif;
       top: 0;
       left: 0;
     }
-    .news-cards-content-page {
+    .news-article-content-page {
       // position: relative;
       display: flex;
       flex-direction: column;
-      width: 86%;
+      width: 66%;
       height: fit-content;
       padding: 0;
-      margin: 10px 10px;
-      background-color: white;
+      margin: 10px 0;
       transition: transform 0.3s ease;
-      .header-cards-wrap {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        // justify-content: ;
-      }
-      .cards-wrap-content-page {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1px;
-        justify-content: flex-start;
-        margin: 0 10px;
-      }
+    }
+    .cards-grid-content {
+      width: 20%;
+      margin: 60px 0;
+      transition: transform 0.3s ease;
     }
   }
 }
