@@ -5,7 +5,8 @@ import NewsPara from "./NewsPara";
 import NewsImage from "./NewsImage";
 import Advertisement from "../Advertisement/Advertisement";
 import NewsSource from "./NewsSource";
-import CommentCard from "../../layout/Card/CommentCard";
+import InputCard from "../../layout/Card/InputCard";
+import SendIcon from "../../icons/SendIcon";
 import img_1 from "../../../assets/holiday.jpg";
 import img_2 from "../../../assets/holiday2.jpg";
 
@@ -121,15 +122,18 @@ const NewsArticle = () => {
         margin="20px 0"
       />
       <NewsSource />
-      <CommentCard 
-        textSize="16px" 
-        margin="20px 0 80px 0" 
+      <InputCard
+        variant="withIcon"
+        textSize="14px"
+        margin="20px 0 80px 0"
         padding="4px 16px"
         width="98%"
-        height="auto"
+        height="40px"
         iconColor="#666"
         iconSize="20px"
         iconMargin="0 20px 0 0"
+        text="Yorum yap"
+        IconComponent={SendIcon}
       />
     </div>
   );

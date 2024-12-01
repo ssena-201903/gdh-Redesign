@@ -1,0 +1,30 @@
+.primary-button {
+    font-family: "Montserrat", sans-serif;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &.fill {
+        background-color: #181731;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        font-weight: 400;
+        &:hover {
+            opacity: 0.9;
+            font-weight: 600;
+        }
+    }
+    &.outline {
+        background-color: transparent;
+        border: 2px solid white;
+        padding: 8px 16px;
+        font-weight: 400;
+        color: white;
+        &:hover {
+            background-color: white;
+            color: #181731;
+            font-weight: 500;
+        }
+    }
+}
