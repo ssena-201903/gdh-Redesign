@@ -8,7 +8,7 @@ const CardsGridContent = () => {
 
   // calculate the number of cards as length of content
   useEffect(() => {
-    const numberOfCards = Math.floor(contentLength / 500);
+    const numberOfCards = Math.floor(contentLength / 450);
     const newCards = Array.from({ length: numberOfCards }, (_, index) => ({
       id: index + 1,
     }));

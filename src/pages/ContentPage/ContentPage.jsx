@@ -10,9 +10,9 @@ import UpArrowButton from "../../components/common/UpArrowButton";
 import UpArrowIcon from "../../components/icons/UpArrowIcon";
 import HeaderNews from "../../components/sections/HeaderNews/HeaderNews";
 import NewsArticle from "../../components/sections/NewsArticle/NewsArticle";
+import CardsGridContent from "../../components/layout/Card/CardsGridContent";
 
 import "./ContentPage.scss";
-import CardsGridContent from "../../components/layout/Card/CardsGridContent";
 
 const ContentPage = () => {
   const { isNavbarOpen } = useNavbar();

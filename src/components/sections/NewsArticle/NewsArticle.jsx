@@ -15,7 +15,7 @@ const NewsArticle = () => {
   useEffect(() => {
     const content = document.getElementById("news-content");
     if (content) {
-      setContentLength(content.innerText.length);
+      setContentLength(content.offsetHeight);
     }
   }, [setContentLength]);
 
