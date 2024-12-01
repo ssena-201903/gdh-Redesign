@@ -208,7 +208,7 @@ const NewsCardImg = ({ width }) => {
       <h5>{header}</h5>
       <div className="card-content" onClick={goToContentPage}>
         <div className="content-text">
-          <NewsPara text={newsPara} margin="20px 0" fontSize="16px" />
+          <NewsPara text={newsPara} margin="20px 0" fontSize="16px" lineHeight="1.6" />
         </div>
         <div className="content-img">
           {imgUrl ? (

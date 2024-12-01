@@ -4,6 +4,10 @@ import NewsTitle from "./NewsTitle";
 import NewsPara from "./NewsPara";
 import NewsImage from "./NewsImage";
 import Advertisement from "../Advertisement/Advertisement";
+import NewsSource from "./NewsSource";
+import CommentCard from "../../layout/Card/CommentCard";
+import img_1 from "../../../assets/holiday.jpg";
+import img_2 from "../../../assets/holiday2.jpg";
 
 const NewsArticle = () => {
   const { setContentLength } = useContext(ContentContext);
@@ -24,48 +28,59 @@ const NewsArticle = () => {
   return (
     <div id="news-content" style={styles}>
       <NewsTitle
-        text="Lorem ipsum dolor sit amet consectetur. A massa morbi morbi et donec eget sollicitudin."
+        text="Tatilde Hayat Kurtaran İpuçları! Seyahatte Mutlaka Bilmeniz Gerekenler"
         variant="main"
       />
       <NewsPara
-        text="Elementum vulputate sapien mattis id ornare scelerisque at hac. Amet imperdiet malesuada mus vel etiam non. Id diam nibh massa magna nulla sodales euismod. Mattis dignissim lectus blandit amet velit facilisis. Massa posuere auctor semper viverra cras augue. Vestibulum est aliquet ullamcorper interdum nisl enim mattis."
+        text="Tatil, dinlenmek ve yenilenmek için harika bir fırsattır, 
+        ancak doğru planlama yapılmadığında stresli bir deneyime dönüşebilir. 
+        İşte seyahat sırasında size zaman ve enerji kazandıracak hayat kurtaran ipuçları! 
+        Tatilinizi daha keyifli ve sorunsuz geçirmeniz için bu önerilere mutlaka göz atın."
         margin="10px 0 20px 0"
-        fontSize="16px"
+        fontSize="18px"
         lineHeight="2"
       />
       <NewsPara
-        text="Elementum vulputate sapien mattis id ornare scelerisque at hac. Amet imperdiet malesuada mus vel etiam non. Id diam nibh massa magna nulla sodales euismod. Mattis dignissim lectus blandit amet velit facilisis. Massa posuere auctor semper viverra cras augue. Vestibulum est aliquet ullamcorper interdum nisl enim mattis."
+        text="Unutmayın, tatil sadece yeni yerler keşfetmek değil, 
+        aynı zamanda anılar biriktirmek demektir. 
+        Planlamanızı akıllıca yaparak beklenmedik sorunları 
+        en aza indirebilir ve her anın tadını çıkarabilirsiniz."
         margin="0"
-        fontSize="16px"
+        fontSize="18px"
         lineHeight="2"
       />
-      <NewsImage
-        src="https://picsum.photos/id/233/200/300"
-        alt="news_image"
-        width="900px"
-        height="300px"
-        margin="20px 0"
+      <NewsImage src={img_1} alt="news_image" width="900px" height="300px" />
+      <NewsTitle text="1. Seyahat Planlamasında Altın Kurallar" variant="sub" />
+      <NewsTitle text="Esnek ve Akıllı Bilet Seçimi:" variant="minor" />
+      <NewsPara
+        text="Uçak biletlerinizi alırken fiyat karşılaştırma sitelerinden yararlanın 
+        ve esnek tarih seçeneğini göz önünde bulundurun. 
+        Genellikle hafta içi ve gece uçuşları daha ekonomik olabilir. 
+        Ayrıca, hava yollarının bagaj politikalarını kontrol ederek sürpriz ücretlerden kaçının."
+        margin="10px 0 20px 0"
+        fontSize="18px"
+        lineHeight="2"
       />
       <NewsTitle
-        text="Lorem ipsum dolor sit amet consectetur. A massa morbi morbi et donec eget sollicitudin."
-        variant="sub"
+        text="Konaklamada Önceliklerinizi Belirleyin:"
+        variant="minor"
       />
       <NewsPara
-        text="Elementum vulputate sapien mattis id ornare scelerisque at hac. Amet imperdiet malesuada mus vel etiam non. Id diam nibh massa magna nulla sodales euismod. Mattis dignissim lectus blandit amet velit facilisis. Massa posuere auctor semper viverra cras augue. Vestibulum est aliquet ullamcorper interdum nisl enim mattis."
+        text="Tatil planınıza uygun bir otel veya konaklama seçmek önemlidir. 
+        Çocuklu aileler için geniş odalar ve mutfak imkânı sunan tesisler idealdir. 
+        Tek başınıza seyahat ediyorsanız, daha merkezi ve sosyal bir atmosfere sahip butik 
+        otelleri tercih edebilirsiniz."
         margin="10px 0 20px 0"
-        fontSize="16px"
+        fontSize="18px"
         lineHeight="2"
       />
+      <NewsTitle text="Acil Durumlar İçin Hazırlıklı Olun:" variant="minor" />
       <NewsPara
-        text="Elementum vulputate sapien mattis id ornare scelerisque at hac. Amet imperdiet malesuada mus vel etiam non. Id diam nibh massa magna nulla sodales euismod. Mattis dignissim lectus blandit amet velit facilisis. Massa posuere auctor semper viverra cras augue. Vestibulum est aliquet ullamcorper interdum nisl enim mattis."
+        text="Yanınızda her zaman temel ilk yardım malzemeleri, 
+        yedek şarj cihazı ve pasaportunuzun bir kopyasını bulundurun. 
+        Ayrıca, gideceğiniz ülkenin acil durum numaralarını not etmek de faydalı olacaktır."
         margin="10px 0 20px 0"
-        fontSize="16px"
-        lineHeight="2"
-      />
-      <NewsPara
-        text="Elementum vulputate sapien mattis id ornare scelerisque at hac. Amet imperdiet malesuada mus vel etiam non. Id diam nibh massa magna nulla sodales euismod. Mattis dignissim lectus blandit amet velit facilisis. Massa posuere auctor semper viverra cras augue. Vestibulum est aliquet ullamcorper interdum nisl enim mattis."
-        margin="10px 0 20px 0"
-        fontSize="16px"
+        fontSize="18px"
         lineHeight="2"
       />
       <Advertisement
@@ -75,27 +90,46 @@ const NewsArticle = () => {
         addFontSize="42px"
       />
       <NewsTitle
-        text="Lorem ipsum dolor sit amet consectetur. A massa morbi morbi et donec eget sollicitudin."
+        text="2. Tatil Sürecinde Daha Fazla Rahatlık İçin Öneriler"
         variant="sub"
       />
+      <NewsTitle text="Teknolojiden Yararlanın:" variant="minor" />
       <NewsPara
-        text="Elementum vulputate sapien mattis id ornare scelerisque at hac. Amet imperdiet malesuada mus vel etiam non. Id diam nibh massa magna nulla sodales euismod. Mattis dignissim lectus blandit amet velit facilisis. Massa posuere auctor semper viverra cras augue. Vestibulum est aliquet ullamcorper interdum nisl enim mattis."
+        text="Seyahatinizi kolaylaştırmak için mobil uygulamaları kullanın. 
+        Navigasyon, yerel rehberler ve restoran önerileri için 
+        TripAdvisor ve Google Maps gibi uygulamalar kurtarıcıdır. 
+        Ayrıca, offline harita indirmeyi unutmayın!"
         margin="10px 0 20px 0"
-        fontSize="16px"
+        fontSize="18px"
+        lineHeight="2"
+      />
+      <NewsTitle text="Hafif ve Pratik Bavullar Hazırlayın:" variant="minor" />
+      <NewsPara
+        text="Bavul hazırlarken minimalizmi benimseyin. 
+        Her gün için ayrı kıyafet yerine farklı kombinasyonlarla kullanılabilecek parçalar seçin. 
+        Ayrıca, çok cepli sırt çantaları hem seyahat sırasında hem de günübirlik turlarda 
+        işinizi kolaylaştırır."
+        margin="10px 0 20px 0"
+        fontSize="18px"
         lineHeight="2"
       />
       <NewsImage
-        src="https://picsum.photos/seed/6084/400/200"
+        src={img_2}
         alt="news_image"
         width="900px"
         height="300px"
         margin="20px 0"
       />
-      <NewsPara
-        text="Elementum vulputate sapien mattis id ornare scelerisque at hac. Amet imperdiet malesuada mus vel etiam non. Id diam nibh massa magna nulla sodales euismod. Mattis dignissim lectus blandit amet velit facilisis. Massa posuere auctor semper viverra cras augue. Vestibulum est aliquet ullamcorper interdum nisl enim mattis."
-        margin="10px 0 20px 0"
-        fontSize="16px"
-        lineHeight="2"
+      <NewsSource />
+      <CommentCard 
+        textSize="16px" 
+        margin="20px 0 80px 0" 
+        padding="4px 16px"
+        width="98%"
+        height="auto"
+        iconColor="#666"
+        iconSize="20px"
+        iconMargin="0 20px 0 0"
       />
     </div>
   );

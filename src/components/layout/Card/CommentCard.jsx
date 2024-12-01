@@ -1,16 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
+import SendIcon from "../../icons/SendIcon";
 import "./CommentCard.scss";
 
 const CommentCard = ({
-  IconComponent,
   textSize,
   margin,
   padding,
   width,
   height,
   iconColor,
-  iconSize
+  iconSize,
+  iconMargin
 }) => {
   return (
     <div
@@ -20,7 +21,8 @@ const CommentCard = ({
       <p className="text-comment-card" style={{ fontSize: textSize }}>
         Yorum Yap
       </p>
-      {IconComponent && <IconComponent size={iconSize} color={iconColor} margin="0" />}
+      {/* {IconComponent && <IconComponent size={iconSize} color={iconColor} margin="0" />} */}
+      <SendIcon size={iconSize} color={iconColor} margin={iconMargin}/>
     </div>
   );
 };

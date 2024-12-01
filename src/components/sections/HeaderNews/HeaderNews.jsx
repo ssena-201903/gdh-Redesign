@@ -10,7 +10,7 @@ const HeaderNews = () => {
     <div className="header-news">
       <h5 className="home-title">Anasayfa</h5>
       <RightArrowIcon size="16px" color="#343330" margin="0 8px" />
-      <h5 className="type-news">Spor</h5>
+      <h5 className="type-news">Eğlence</h5>
       <div className="profile-header-news">
         <img src={profilePath} alt="editor_pp"></img>
         <p className="editor-name">Mete Koral</p>

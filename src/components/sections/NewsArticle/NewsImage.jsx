@@ -4,7 +4,7 @@ const NewsImage = ({ src, alt, width, height, margin }) => {
   const styles = {
     width: width,
     height: height,
-    margin: margin,
+    margin: "40px 0",
     display: "flex",
     flexDirection: "center",
     // borderRadius: "8px",

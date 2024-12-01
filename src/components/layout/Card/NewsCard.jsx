@@ -76,6 +76,19 @@ const NewsCard = () => {
             setImgUrl(postData.img);
             setNewsPara(postData.para);
             handleTime(postData.time);
+
+            const paragraphRef = collection(randomDocRef, "paragraphs");
+            const paragraphSnapshot = await getDocs(paragraphRef);
+
+            if (paragraphSnapshot.empty) {
+              console.log("no paragraph found");
+            } else {
+              const paragraphs = paragraphSnapshot.docs.map(doc => doc.data().para).filter(para => para);
+              if (paragraphs.length > 0) {
+                setNewsPara(paragraphs.join("\n\n"));
+              }
+            }
+
           } else {
             console.log("No document found for the selected ID.");
           }
@@ -109,7 +122,7 @@ const NewsCard = () => {
             text={newsPara}
             margin="0"
             fontSize="16px"
-            lineHeight="1.75"
+            lineHeight="1.6"
           />
         </div>
         <div className="content-img" style={{width: isNavbarOpen ? "0" : "50%"}}>
