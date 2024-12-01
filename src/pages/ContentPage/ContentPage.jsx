@@ -11,6 +11,7 @@ import UpArrowIcon from "../../components/icons/UpArrowIcon";
 import HeaderNews from "../../components/sections/HeaderNews/HeaderNews";
 import NewsArticle from "../../components/sections/NewsArticle/NewsArticle";
 import CardsGridContent from "../../components/layout/Card/CardsGridContent";
+import Footer from "../../components/layout/Footer/Footer";
 
 import "./ContentPage.scss";
 
@@ -72,6 +73,7 @@ const ContentPage = () => {
             <CardsGridContent />
           </div>
         </div>
+        <Footer/>
         {isButtonVisible && (
           <UpArrowButton
             IconComponent={() => (
