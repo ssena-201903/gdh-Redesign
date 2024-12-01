@@ -166,10 +166,26 @@ const NewsCardImg = ({ width }) => {
             setLikedCount(postData.likedNumber);
             setImgUrl(postData.img);
             setSavedCount(postData.savedNumber);
-            setNewsPara(postData.para);
+            // setNewsPara(postData.para);
             setIsLiked(postData.isLiked || false);
             setIsSaved(postData.isSaved || false);
             handleTime(postData.time);
+
+            const paragraphRef = collection(randomDocRef, "paragraphs");
+            const paragraphSnapshot = await getDocs(paragraphRef);
+
+            if (paragraphSnapshot.empty) {
+              console.log("no paragraph found");
+            } else {
+              const paragraphs = paragraphSnapshot.docs
+                .map((doc) => doc.data().para)
+                .filter((para) => para);
+              if (paragraphs.length > 0) {
+                // set as a string
+                setNewsPara(paragraphs.join("\n\n"));
+              }
+            }
+
           } else {
             console.log("No document found for the selected ID.");
           }
@@ -184,17 +200,15 @@ const NewsCardImg = ({ width }) => {
   }, []);
 
   return (
-    <div
-      className="main-news-card-img"
-    >
+    <div className="main-news-card-img">
       <div className="card-top-header">
         <p className="topic">{topicName}</p>
         <p className="set-time">{time}</p>
       </div>
       <h5>{header}</h5>
-      <div className="card-content">
+      <div className="card-content" onClick={goToContentPage}>
         <div className="content-text">
-        <NewsPara text={newsPara} margin="20px 0" fontSize="16px"/>
+          <NewsPara text={newsPara} margin="20px 0" fontSize="16px" />
         </div>
         <div className="content-img">
           {imgUrl ? (

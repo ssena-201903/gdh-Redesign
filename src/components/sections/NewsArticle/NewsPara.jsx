@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
 const NewsPara = ({text, margin= "20px 0 40px 0", fontSize= "16px", lineHeight}) => {
   const styles = {
@@ -12,6 +13,13 @@ const NewsPara = ({text, margin= "20px 0 40px 0", fontSize= "16px", lineHeight})
   return (
     <p style={styles}>{text}</p>
   )
+}
+
+NewsPara.propTypes = {
+  text: PropTypes.string,
+  margin: PropTypes.string,
+  fontSize: PropTypes.string,
+  lineHeight: PropTypes.number,
 }
 
 export default NewsPara
