@@ -20,6 +20,7 @@ const ContentPage = () => {
   const [isButtonVisible, setIsButtonVisible] = useState(false);
 
   const handleScroll = () => {
+
     if (window.scrollY > 200) {
       setIsButtonVisible(true);
     } else {
@@ -29,7 +30,7 @@ const ContentPage = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -67,13 +68,13 @@ const ContentPage = () => {
             style={{
               transform: isNavbarOpen
                 ? "translateX(-10px)"
-                : "translateX(-90px)"
+                : "translateX(-90px)",
             }}
           >
             <CardsGridContent />
           </div>
         </div>
-        <Footer/>
+        <Footer />
         {isButtonVisible && (
           <UpArrowButton
             IconComponent={() => (

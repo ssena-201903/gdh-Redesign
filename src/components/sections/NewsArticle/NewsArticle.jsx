@@ -125,7 +125,7 @@ const NewsArticle = () => {
       <InputCard
         variant="withIcon"
         textSize="14px"
-        margin="20px 0 80px 0"
+        margin="20px 0 40px 0"
         padding="4px 16px"
         width="98%"
         height="40px"
