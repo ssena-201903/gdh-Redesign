@@ -12,6 +12,7 @@ import ContentPage from "./pages/ContentPage/ContentPage";
 import HomeDesktop from "./pages/HomePage/HomeDesktop";
 
 import "./App.scss";
+import { CardProvider } from "./context/CardContext";
 // import pushDataToFirestore from './pushDataToFirestore';
 
 function AnimatedRoutes() {
@@ -23,14 +24,16 @@ function AnimatedRoutes() {
         <Route
           path="/"
           element={
-            <motion.div
-              initial={{ opacity: 0, x: "50%" }} // New page comes from the right
-              animate={{ opacity: 1, x: 0 }} // It slides to the center
-              exit={{ opacity: 0, x: 0 }} // Old page stays still
-              transition={{ duration: 0.5 }}
-            >
-              <HomeDesktop />
-            </motion.div>
+            <CardProvider>
+              <motion.div
+                initial={{ opacity: 0, x: "50%" }} // New page comes from the right
+                animate={{ opacity: 1, x: 0 }} // It slides to the center
+                exit={{ opacity: 0, x: 0 }} // Old page stays still
+                transition={{ duration: 0.5 }}
+              >
+                <HomeDesktop />
+              </motion.div>
+            </CardProvider>
           }
         />
         <Route

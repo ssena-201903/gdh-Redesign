@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./NewsCard.scss";
 // import { getRandomImage } from "../../../unsplashService";
 
-import { getDocs, collection, doc, getDoc } from "firebase/firestore";
+import { getDocs, collection, doc, getDoc, query, where } from "firebase/firestore";
 import { db } from "../../../firebaseConfig";
 
 import NewsPara from "../../sections/NewsArticle/NewsPara";
@@ -77,16 +77,24 @@ const NewsCard = () => {
             setNewsPara(postData.para);
             handleTime(postData.time);
 
-            const paragraphRef = collection(randomDocRef, "paragraphs");
-            const paragraphSnapshot = await getDocs(paragraphRef);
+            // to set paragraph, get text values of order=2
+            const sectionRef = collection(randomDocRef, "sections");
+            const querySnapshot = await getDocs(
+              query(sectionRef, where("order", "==", 2))
+            );
 
-            if (paragraphSnapshot.empty) {
-              console.log("no paragraph found");
+            if (!querySnapshot.empty) {
+              querySnapshot.forEach((doc) => {
+                // console.log("dokuman id'si:", doc.id);
+                // console.log("dokuman verisi", doc.data());
+              })
+            
+              const sections = querySnapshot.docs
+                .map((doc) => doc.data().text) 
+                .filter(Boolean); 
+              setNewsPara(sections.join("\n\n")); 
             } else {
-              const paragraphs = paragraphSnapshot.docs.map(doc => doc.data().para).filter(para => para);
-              if (paragraphs.length > 0) {
-                setNewsPara(paragraphs.join("\n\n"));
-              }
+              console.log("Herhangi bir alt bölüm bulunamadı.");
             }
 
           } else {

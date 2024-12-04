@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useCardContext } from "../../../context/CardContext";
 import "./NewsCardImg.scss";
 // import { getRandomImage } from "../../../unsplashService";
 
@@ -9,6 +10,8 @@ import {
   doc,
   getDoc,
   updateDoc,
+  query,
+  where,
 } from "firebase/firestore";
 import { db } from "../../../firebaseConfig";
 
@@ -34,9 +37,11 @@ const NewsCardImg = ({ width }) => {
   const [documentId, setDocumentId] = useState("");
   const [isLiked, setIsLiked] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
+  const { setSelectedCardId } = useCardContext();
 
   const navigate = useNavigate();
   const goToContentPage = () => {
+    setSelectedCardId(documentId);
     navigate("/content");
   };
 
@@ -171,19 +176,24 @@ const NewsCardImg = ({ width }) => {
             setIsSaved(postData.isSaved || false);
             handleTime(postData.time);
 
-            const paragraphRef = collection(randomDocRef, "paragraphs");
-            const paragraphSnapshot = await getDocs(paragraphRef);
+            // to set paragraph, get text values of order=2
+            const sectionRef = collection(randomDocRef, "sections");
+            const querySnapshot = await getDocs(
+              query(sectionRef, where("order", "==", 2))
+            );
 
-            if (paragraphSnapshot.empty) {
-              console.log("no paragraph found");
+            if (!querySnapshot.empty) {
+              querySnapshot.forEach((doc) => {
+                // console.log("dokuman id'si:", doc.id);
+                // console.log("dokuman verisi", doc.data());
+              })
+            
+              const sections = querySnapshot.docs
+                .map((doc) => doc.data().text) 
+                .filter(Boolean); 
+              setNewsPara(sections.join("\n\n")); 
             } else {
-              const paragraphs = paragraphSnapshot.docs
-                .map((doc) => doc.data().para)
-                .filter((para) => para);
-              if (paragraphs.length > 0) {
-                // set as a string
-                setNewsPara(paragraphs.join("\n\n"));
-              }
+              console.log("Herhangi bir alt bölüm bulunamadı.");
             }
 
           } else {
@@ -208,7 +218,12 @@ const NewsCardImg = ({ width }) => {
       <h5>{header}</h5>
       <div className="card-content" onClick={goToContentPage}>
         <div className="content-text">
-          <NewsPara text={newsPara} margin="20px 0" fontSize="16px" lineHeight="1.6" />
+          <NewsPara
+            text={newsPara}
+            margin="20px 0"
+            fontSize="16px"
+            lineHeight="1.6"
+          />
         </div>
         <div className="content-img">
           {imgUrl ? (
