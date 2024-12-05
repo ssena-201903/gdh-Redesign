@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavbar } from "../../context/NavbarContext";
 import { ContentProvider } from "../../context/ContentContext";
-import { CardProvider } from "../../context/CardContext";
 
 //components
 import Header from "../../components/layout/Header/TopHeader";
@@ -42,7 +41,6 @@ const ContentPage = () => {
   };
 
   return (
-    <CardProvider>
       <ContentProvider>
         <div className="main-content-page">
           <div className="top">
@@ -88,7 +86,6 @@ const ContentPage = () => {
           )}
         </div>
       </ContentProvider>
-    </CardProvider>
   );
 };
 

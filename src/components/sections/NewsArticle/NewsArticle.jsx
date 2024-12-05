@@ -1,6 +1,6 @@
-import React, { useEffect, useContext, useState } from "react";
-import { ContentContext } from "../../../context/ContentContext";
-import { useCardContext } from "../../../context/CardContext";
+import React, { useEffect, useState } from "react";
+import { useContent } from "../../../context/ContentContext";
+import { useCard } from "../../../context/CardContext";
 import { db } from "../../../firebaseConfig";
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import NewsTitle from "./NewsTitle";
@@ -11,13 +11,19 @@ import NewsSource from "./NewsSource";
 import InputCard from "../../layout/Card/InputCard";
 import SendIcon from "../../icons/SendIcon";
 import img_1 from "../../../assets/holiday.jpg";
-import img_2 from "../../../assets/holiday2.jpg";
+// import img_2 from "../../../assets/holiday2.jpg";
 
 const NewsArticle = () => {
-  const { setContentLength } = useContext(ContentContext);
+  const { setContentLength } = useContent();
   const [sections, setSections] = useState([]);
   // const [randomAdIndex, setRandomAdIndex] = useState(-1);
-  const { selectedCardId } = useCardContext();
+  const { selectedCardId } = useCard(); 
+
+  useEffect(() => {
+    if (!selectedCardId) {
+      console.warn("selected card id null");
+    }
+  }, [selectedCardId]);
 
   useEffect(() => {
     const content = document.getElementById("news-content");

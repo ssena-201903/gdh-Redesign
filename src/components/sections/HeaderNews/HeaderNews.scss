@@ -15,6 +15,7 @@ $primary-black: #181731;
     font-size: 16px;
     font-weight: 300;
     color: $primary-black;
+    cursor: pointer;
   }
   .type-news {
     font-size: 20px;
@@ -26,16 +27,16 @@ $primary-black: #181731;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    width: 300px;
-    margin: 0 40px 0 80px;
+    width: fit-content;
+    margin: 0 80px 0 80px;
     img {
         width: 30px;
         height: 30px;
         border-radius: 50%;
     }
     .editor-name {
-        width: 120px;
-        margin: 0 4px 0 16px;
+        width: fit-content;
+        margin: 0 20px 0 16px;
         font-weight: 400;
         color: rgba(0, 0, 0, 0.436)
     }

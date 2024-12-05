@@ -1,9 +1,9 @@
-import React, { useEffect, useState, useContext } from "react";
-import { ContentContext } from "../../../context/ContentContext";
+import React, { useEffect, useState } from "react";
+import { useContent } from "../../../context/ContentContext";
 import NewsCard from "./NewsCard";
 
 const CardsGridContent = () => {
-  const { contentLength } = useContext(ContentContext);
+  const { contentLength } = useContent();
   const [cards, setCards] = useState([]);
 
   // calculate the number of cards as length of content

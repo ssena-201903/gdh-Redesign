@@ -1,12 +1,18 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import { useContext } from 'react';
 
-const CardContext = createContext();
-
-// export const useCardContext = () => useContext(CardContext);
+export const CardContext = createContext();
 
 export const CardProvider = ({ children }) => {
-    const [selectedCardId, setSelectedCardId] = useState(null);
+    const [selectedCardId, setSelectedCardId] = useState(
+      () => localStorage.getItem('selectedCardId') || null
+    );
+
+    useEffect(() => {
+      if (selectedCardId) {
+        localStorage.setItem('selectedCardId', selectedCardId);
+      }
+    }, [selectedCardId]);
     
   return (
     <CardContext.Provider value={{ selectedCardId, setSelectedCardId }}>
@@ -15,6 +21,6 @@ export const CardProvider = ({ children }) => {
   );
 };
 
-export const useCardContext = () => useContext(CardContext);
+export const useCard = () => useContext(CardContext);
 
 

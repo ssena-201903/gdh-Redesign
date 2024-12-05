@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useContext } from "react";
-import { NavbarContext } from "../../../context/NavbarContext";
+import React, { useState, useEffect } from "react";
+// import { NavbarContext } from "../../../context/NavbarContext";
+import { useNavbar } from "../../../context/NavbarContext";
 import { useNavigate } from "react-router-dom";
 import "./NewsCard.scss";
 // import { getRandomImage } from "../../../unsplashService";
@@ -17,7 +18,7 @@ const NewsCard = () => {
   const [newsPara, setNewsPara] = useState("");
   const [documentId, setDocumentId] = useState("");
 
-  const { isNavbarOpen } = useContext(NavbarContext);
+  const { isNavbarOpen } = useNavbar();
 
   const navigate = useNavigate();
   const goToContentPage = () => {

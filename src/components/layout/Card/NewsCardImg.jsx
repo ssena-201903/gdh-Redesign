@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { useCardContext } from "../../../context/CardContext";
+import { useCard } from "../../../context/CardContext";
 import "./NewsCardImg.scss";
 // import { getRandomImage } from "../../../unsplashService";
 
@@ -24,7 +24,7 @@ import NewsPara from "../../sections/NewsArticle/NewsPara";
 // import SendIcon from "../../icons/SendIcon";
 // import CommentCard from "./CommentCard";
 
-const NewsCardImg = ({ width }) => {
+const NewsCardImg = () => {
   const [imgUrl, setImgUrl] = useState("");
   const [likedCount, setLikedCount] = useState(0);
   const [commentCount, setCommentCount] = useState(0);
@@ -37,13 +37,22 @@ const NewsCardImg = ({ width }) => {
   const [documentId, setDocumentId] = useState("");
   const [isLiked, setIsLiked] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
-  const { setSelectedCardId } = useCardContext();
+  const { setSelectedCardId } = useCard();
 
   const navigate = useNavigate();
+
   const goToContentPage = () => {
-    setSelectedCardId(documentId);
-    navigate("/content");
+    if (documentId) {
+      setSelectedCardId(documentId);
+      navigate("/content");
+    } else {
+      console.log("document id bulunamadı")
+    }
   };
+
+  const setCardIdCallback = useCallback((documentId) => {
+    setSelectedCardId(documentId);
+  }, [setSelectedCardId]);
 
   // if heart icon is not filled
   const handleUnLikedCount = async () => {
@@ -157,6 +166,7 @@ const NewsCardImg = ({ width }) => {
           const randomIndex = Math.floor(Math.random() * docIds.length);
           const randomId = docIds[randomIndex];
           setDocumentId(randomId);
+          setCardIdCallback(randomId);
 
           // get selected doc
           const randomDocRef = doc(db, "news", randomId);

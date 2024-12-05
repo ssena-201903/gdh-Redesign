@@ -6,13 +6,13 @@ import {
   useLocation,
 } from "react-router-dom";
 import { NavbarProvider } from "./context/NavbarContext";
+import { CardProvider } from "./context/CardContext";
 import { motion, AnimatePresence } from "framer-motion";
 
 import ContentPage from "./pages/ContentPage/ContentPage";
 import HomeDesktop from "./pages/HomePage/HomeDesktop";
 
 import "./App.scss";
-import { CardProvider } from "./context/CardContext";
 // import pushDataToFirestore from './pushDataToFirestore';
 
 function AnimatedRoutes() {
@@ -24,16 +24,14 @@ function AnimatedRoutes() {
         <Route
           path="/"
           element={
-            <CardProvider>
               <motion.div
-                initial={{ opacity: 0, x: "50%" }} // New page comes from the right
+                initial={{ opacity: 0, x: "-50%" }} // New page comes from the left
                 animate={{ opacity: 1, x: 0 }} // It slides to the center
-                exit={{ opacity: 0, x: 0 }} // Old page stays still
+                // exit={{ opacity: 0, x: 0 }} // Old page stays still
                 transition={{ duration: 0.5 }}
               >
                 <HomeDesktop />
               </motion.div>
-            </CardProvider>
           }
         />
         <Route
@@ -43,7 +41,7 @@ function AnimatedRoutes() {
               <motion.div
                 initial={{ opacity: 0, x: "100%" }} // New page comes from the right
                 animate={{ opacity: 1, x: 0 }} // It slides to the center
-                exit={{ opacity: 0, x: 0 }} // Old page stays still
+                // exit={{ opacity: 0, x: 0 }} // Old page stays still
                 transition={{ duration: 0.5 }}
               >
                 <ContentPage />
@@ -63,9 +61,11 @@ function App() {
   // console.log("app.jsx created");
 
   return (
-    <Router>
-      <AnimatedRoutes />
-    </Router>
+    <CardProvider>
+      <Router>
+        <AnimatedRoutes />
+      </Router>
+    </CardProvider>
   );
 }
 
