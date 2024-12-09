@@ -129,8 +129,8 @@ const NewsCard = () => {
         <div className="content-text" style={{width: isNavbarOpen ? "100%" : "50%"}}>
           <NewsPara
             text={newsPara}
-            margin="0"
-            fontSize="16px"
+            margin="0 8px 0 0"
+            fontSize="14px"
             lineHeight="1.6"
           />
         </div>

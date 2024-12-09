@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Footer.scss";
 import Logo from "../../common/Logo";
 import SocialLinks from "../../sections/Advertisement/SocialLinks";
@@ -6,7 +6,13 @@ import SocialButton from "../../common/SocialButton";
 import InputCard from "../Card/InputCard";
 import PrimaryButton from "../../common/PrimaryButton";
 
+import AddNewsPortal from "../../../portals/AddNewsPortal";
+
 const Footer = () => {
+  const [isPortalOpen, setIsPortalOpen] = useState(false);
+
+  const togglePortal = () => setIsPortalOpen((prev) => !prev);
+
   return (
     <div className="main-footer">
       <div className="footer-add">
@@ -75,7 +81,9 @@ const Footer = () => {
                 variant="fill"
                 backgroundColor="white"
                 color="#181731"
+                onClick={togglePortal}
             />
+            <AddNewsPortal isOpen={isPortalOpen} onClose={togglePortal}/>
           </div>
         </div>
       </div>
