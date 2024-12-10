@@ -13,41 +13,70 @@
   .portal {
     background: white;
     width: 1200px;
-    height: 400px;
+    // height: 500px;
+    max-height: 80vh;
     padding: 20px;
     border-radius: 8px;
     position: relative;
-    padding: 40px;
+    padding: 20px 40px;
+    overflow-y: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
     h5 {
-        color: #181731;
-        font-size: 20px;
-        font-weight: 600;
+      color: #181731;
+      font-size: 20px;
+      font-weight: 600;
     }
 
     .text-inputs {
-        display: flex;
-        flex-direction: column;
+      display: flex;
+      flex-direction: column;
 
-        .text-input {
-            width: 400px;
-            height: auto;
-            border-radius: 8px;
-            border: 1px solid rgb(64, 64, 64);
-            padding: 8px 16px;
-            margin: 8px 0;
-        }
+      .text-input {
+        width: 400px;
+        height: auto;
+        border-radius: 8px;
+        border: 1px solid rgb(64, 64, 64);
+        padding: 8px 16px;
+        margin: 8px 0;
+      }
     }
 
     .select-inputs {
-        @extend .text-inputs;
-        flex-direction: row;
+      @extend .text-inputs;
+      flex-direction: row;
 
-        .select-input {
-            @extend .text-input;
-            width: 120px;
-            margin-right: 10px;
+      .select-input {
+        @extend .text-input;
+        width: 120px;
+        margin-right: 10px;
+      }
+    }
+
+    .sections-div {
+      margin: 20px 0;
+
+      .section-item {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 800px;
+        height: auto;
+
+        .text-input {
+          width: 400px;
+          height: auto;
+          border-radius: 8px;
+          border: 1px solid rgb(64, 64, 64);
+          padding: 8px 16px;
+          margin: 8px 0;
         }
+        .select-input {
+          @extend .text-input;
+          width: 120px;
+          margin-right: 10px;
+        }
+      }
     }
 
     .close-button {
