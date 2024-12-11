@@ -1,19 +1,27 @@
 import React, { useEffect, useState } from "react";
-import { useContent } from "../../../context/ContentContext";
+// import { useContent } from "../../../context/ContentContext";
 import NewsCard from "./NewsCard";
 
 const CardsGridContent = () => {
-  const { contentLength } = useContent();
+  // const { contentLength } = useContent();
   const [cards, setCards] = useState([]);
 
   // calculate the number of cards as length of content
+  // useEffect(() => {
+  //   console.log("CONTENT LENGTH: ", contentLength);
+  //   const numberOfCards = Math.floor(contentLength / 450);
+  //   const newCards = Array.from({ length: numberOfCards }, (_, index) => ({
+  //     id: index + 1,
+  //   }));
+  //   setCards(newCards);
+  // }, [contentLength]);
+
   useEffect(() => {
-    const numberOfCards = Math.floor(contentLength / 450);
-    const newCards = Array.from({ length: numberOfCards }, (_, index) => ({
+    const newsCards = Array.from({ length: 6}, (_, index) => ({
       id: index + 1,
-    }));
-    setCards(newCards);
-  }, [contentLength]);
+    }))
+    setCards(newsCards);
+  }, []);
 
   return (
     <div style={{ display: "flex", gap: "20px" }}>
@@ -30,10 +38,9 @@ const CardsGridContent = () => {
         </h5>
         {/* making cards dynamically */}
         {cards.map((card) => (
-          <div key={card.id}>
-            <NewsCard key={card.id} width="280px" />
-          </div>
+          <NewsCard key={card.id}/>
         ))}
+        {/* <NewsCard/> */}
       </div>
     </div>
   );

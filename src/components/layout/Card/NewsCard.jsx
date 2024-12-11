@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from "react";
-// import { NavbarContext } from "../../../context/NavbarContext";
 import { useNavbar } from "../../../context/NavbarContext";
-import { useNavigate } from "react-router-dom";
-import "./NewsCard.scss";
-// import { getRandomImage } from "../../../unsplashService";
-
 import { getDocs, collection, doc, getDoc, query, where } from "firebase/firestore";
 import { db } from "../../../firebaseConfig";
 
 import NewsPara from "../../sections/NewsArticle/NewsPara";
+
+import "./NewsCard.scss";
 
 const NewsCard = () => {
   const [imgUrl, setImgUrl] = useState("");
@@ -20,10 +17,6 @@ const NewsCard = () => {
 
   const { isNavbarOpen } = useNavbar();
 
-  const navigate = useNavigate();
-  const goToContentPage = () => {
-    navigate("/content");
-  };
 
   //convert time to an object and show on the post
   const handleTime = (time) => {
@@ -56,7 +49,7 @@ const NewsCard = () => {
       try {
         const postRef = collection(db, "news");
         const snapshot = await getDocs(postRef);
-
+        
         if (!snapshot.empty) {
           // collect doc ids
           const docIds = snapshot.docs.map((doc) => doc.id);
@@ -64,7 +57,7 @@ const NewsCard = () => {
           // pic a random id
           const randomIndex = Math.floor(Math.random() * docIds.length);
           const randomId = docIds[randomIndex];
-          setDocumentId(randomId);
+          // setDocumentId(randomId);
 
           // get selected doc
           const randomDocRef = doc(db, "news", randomId);
@@ -77,7 +70,7 @@ const NewsCard = () => {
             setImgUrl(postData.img);
             setNewsPara(postData.para);
             handleTime(postData.time);
-
+            
             // to set paragraph, get text values of order=2
             const sectionRef = collection(randomDocRef, "sections");
             const querySnapshot = await getDocs(
@@ -116,7 +109,7 @@ const NewsCard = () => {
       className="main-news-card"
       style={{
         cursor: "pointer",
-        width: isNavbarOpen ? "200px" : "280px",
+        width: isNavbarOpen ? "240px" : "320px",
         transition: "flex 0.3s ease",
       }}
     >
@@ -124,14 +117,16 @@ const NewsCard = () => {
         <p className="topic">{topicName}</p>
         <p className="set-time">{time}</p>
       </div>
-      <h5>{header}</h5>
-      <div className="card-content" style={{height: isNavbarOpen ? "200px" : "180px"}}>
+      <h5 style={{
+        height: isNavbarOpen ? "auto" : "60px",
+      }}>{header}</h5>
+      <div className="card-content" style={{height: isNavbarOpen ? "120px" : "200px"}}>
         <div className="content-text" style={{width: isNavbarOpen ? "100%" : "50%"}}>
           <NewsPara
             text={newsPara}
             margin="0 8px 0 0"
             fontSize="14px"
-            lineHeight="1.6"
+            lineHeight={1.6}
           />
         </div>
         <div className="content-img" style={{width: isNavbarOpen ? "0" : "50%"}}>
@@ -143,7 +138,7 @@ const NewsCard = () => {
         </div>
       </div>
       <div className="go-to-content">
-        <p onClick={goToContentPage}>Haber sayfasına git</p>
+        <p>Haber sayfasına git</p>
       </div>
     </div>
   );

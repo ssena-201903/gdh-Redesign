@@ -13,7 +13,7 @@ import ColoredLine from "../../components/layout/Header/ColoredLine";
 import CardsGrid from "../../components/layout/Card/CardsGrid";
 import { CardProvider } from "../../context/CardContext";
 
-const HomePage = () => {
+const HomeDesktop = () => {
   const [isButtonVisible, setIsButtonVisible] = useState(false);
 
   const handleScroll = () => {
@@ -53,18 +53,6 @@ const HomePage = () => {
           </div>
           <CardProvider>
             <CardsGrid />
-            {/* <div className="cards-wrap-home-page">
-            <NewsCardImg />
-            <NewsCardImg />
-            <NewsCardImg />
-            <NewsCardImg />
-            <NewsCardImg />
-            <NewsCardImg />
-            <NewsCardImg />
-            <NewsCardImg />
-            <Advertisement width="700px" height="400px" margin="30px"/>
-            <NewsCardImg />
-          </div> */}
           </CardProvider>
         </div>
         <div className="sections-home-page"></div>
@@ -83,4 +71,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default HomeDesktop;

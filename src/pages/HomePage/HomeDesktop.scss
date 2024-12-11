@@ -8,12 +8,15 @@ $font-family: "Montserrat", sans-serif;
   flex-direction: column;
   width: 100vw;
   height: auto;
+  box-sizing: border-box;
+  // margin: 0;
+  // padding: 0;
 
   .top {
     display: flex;
     flex-direction: column;
     width: fit-content;
-    height: 20%;
+    // height: 20%;
     position: sticky;
     top: 0;
     z-index: 10;
@@ -22,7 +25,7 @@ $font-family: "Montserrat", sans-serif;
   .bottom {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 100vw;
     height: 100%;
 
     .navbar-home-page {
@@ -40,7 +43,7 @@ $font-family: "Montserrat", sans-serif;
       flex-direction: column;
       width: 86%;
       height: fit-content;
-      padding: 0;
+      // padding: 0;
       margin: 10px 10px;
       background-color: white;
       .header-cards-wrap {

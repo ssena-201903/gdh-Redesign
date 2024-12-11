@@ -43,6 +43,7 @@ const NewsCardImg = () => {
 
   const goToContentPage = () => {
     if (documentId) {
+      setCardIdCallback(documentId);
       setSelectedCardId(documentId);
       navigate("/content");
     } else {

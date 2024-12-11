@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
-import { addDoc, collection, getDocs, serverTimestamp, doc, getDoc } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  getDocs,
+  serverTimestamp,
+  doc,
+  getDoc,
+} from "firebase/firestore";
 import { db } from "../firebaseConfig";
 import PrimaryButton from "../components/common/PrimaryButton";
 import "./AddNewsPortal.scss";
@@ -40,7 +47,7 @@ const AddNewsPortal = ({ isOpen, onClose }) => {
     setOrderCount((prevOrder) => prevOrder + 1);
     setSections((prevSections) => [
       ...prevSections,
-      { order: orderCount + 1, text: "", type: "" , variant: ""},
+      { order: orderCount + 1, text: "", type: "", variant: "" },
     ]);
   };
 
@@ -65,7 +72,7 @@ const AddNewsPortal = ({ isOpen, onClose }) => {
         savedNumber: 0,
         commentNumber: 0,
         seenNumber: 0,
-      })
+      });
 
       const editorRef = doc(db, "editors", selectedEditorId);
       const editorSnapshot = await getDoc(editorRef);
@@ -80,28 +87,18 @@ const AddNewsPortal = ({ isOpen, onClose }) => {
       } else {
         console.log("editor could not find");
       }
-      
+
       const sectionRefs = [];
       for (const section of sections) {
-        const sectionRef = await addDoc(collection(db, `news/${newsRef.id}/sections`), section);
+        const sectionRef = await addDoc(
+          collection(db, `news/${newsRef.id}/sections`),
+          section
+        );
         sectionRefs.push(sectionRef);
       }
-      // const newsData = {
-      //   editor: editors,
-      //   sections,
-      //   header,
-      //   img,
-      //   time: serverTimestamp(),
-      //   topic,
-      //   isLiked: false,
-      //   isSaved: false,
-      //   likedNumber: 0,
-      //   savedNumber: 0,
-      //   commentNumber: 0,
-      //   seenNumber: 0,
-      // };
-      // await addDoc(collection(db, "news"), newsData);
-      onClose();
+
+    
+    onClose();
     } catch (error) {
       console.log("failed to add news", error);
       alert("failed to load news data", error);
@@ -182,7 +179,9 @@ const AddNewsPortal = ({ isOpen, onClose }) => {
               <select
                 className="select-input"
                 value={section.variant}
-                onChange={(e) => updateSection(index, "variant", e.target.value)}
+                onChange={(e) =>
+                  updateSection(index, "variant", e.target.value)
+                }
               >
                 <option value="">Variant Seç</option>
                 <option value="main">Main</option>

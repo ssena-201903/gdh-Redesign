@@ -10,14 +10,13 @@ import Advertisement from "../Advertisement/Advertisement";
 import NewsSource from "./NewsSource";
 import InputCard from "../../layout/Card/InputCard";
 import SendIcon from "../../icons/SendIcon";
-import img_1 from "../../../assets/holiday.jpg";
-// import img_2 from "../../../assets/holiday2.jpg";
 
 const NewsArticle = () => {
-  const { setContentLength } = useContent();
+  // const { setContentLength } = useContent();
   const [sections, setSections] = useState([]);
   // const [randomAdIndex, setRandomAdIndex] = useState(-1);
   const { selectedCardId } = useCard(); 
+  console.log("SELECTED CARD ID: ", selectedCardId);
 
   useEffect(() => {
     if (!selectedCardId) {
@@ -25,25 +24,25 @@ const NewsArticle = () => {
     }
   }, [selectedCardId]);
 
-  useEffect(() => {
-    const content = document.getElementById("news-content");
-    if (content) {
-      setContentLength(content.offsetHeight);
-    }
-  }, [setContentLength]);
+  // useEffect(() => {
+  //   const content = document.getElementById("news-article-content");
+  //   if (content) {
+  //     setContentLength(content.offsetHeight);
+  //   }
+  // }, [setContentLength]);
 
   // fetch data from firestore
   useEffect(() => {
     const fetchSections = async () => {
       try {
-        console.log("document id number:", selectedCardId);
+        // console.log("document id number:", selectedCardId);
         const sectionRef = collection(db, "news", selectedCardId, "sections");
-        console.log("sectionRef: ", sectionRef);
+        // console.log("sectionRef: ", sectionRef);
         const querySnapshot = await getDocs(
           query(sectionRef, orderBy("order", "asc"))
         );
 
-        console.log("fetch edilen yerler: ", querySnapshot);
+        // console.log("fetch edilen yerler: ", querySnapshot);
         const fetchedSections = querySnapshot.docs.map((doc) => doc.data());
         setSections(fetchedSections);
       } catch (error) {
@@ -72,7 +71,7 @@ const NewsArticle = () => {
             text={section.text}
             margin="10px 0 20px 0"
             fontSize="17px"
-            lineHeight="2"
+            lineHeight={2}
           />
         );
       } else if (section.type === "img") {
@@ -98,7 +97,7 @@ const NewsArticle = () => {
   };
 
   return (
-    <div id="news-content" style={styles}>
+    <div id="news-article-content" style={styles}>
       {sections.length > 0 && (
         <>
           {renderContent()}

@@ -3,6 +3,12 @@ $primary-red: #E62A27;
 $primary-white: #f2f5f8;
 $font-family: "Montserrat", sans-serif;
 
+* {
+  box-sizing: border-box;
+  // width: 100%;
+  // padding: 0;
+}
+
 .App {
   text-align: center;
   font-family: $font-family;
